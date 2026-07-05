@@ -320,11 +320,27 @@ a:hover { color: #60a5fa; }
 /* ============================================================
    CONTACT / FOOTER
    ============================================================ */
-.contact-section { text-align: center; padding: 80px var(--side-padding) 60px; }
-.contact-text { font-size: 14px; color: var(--text-secondary); margin-bottom: 20px; }
-.contact-links { display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; }
-.contact-links a { font-size: 14px; color: var(--text-secondary); transition: color 0.2s; }
-.contact-links a:hover { color: var(--text-primary); }
+.contact-section {
+  padding: 60px var(--side-padding);
+  max-width: var(--max-width); margin: 0 auto;
+  display: flex; justify-content: flex-end;
+}
+.contact-block { display: flex; flex-direction: column; }
+.contact-label-title {
+  font-size: 12px; color: #999; margin-bottom: 24px;
+  text-transform: uppercase; letter-spacing: 1.5px;
+  text-align: right;
+}
+.contact-row { display: flex; align-items: baseline; gap: 40px; }
+.contact-key {
+  font-size: 12px; color: #999;
+  text-transform: uppercase; letter-spacing: 1px;
+}
+.contact-val { font-size: 14px; color: #fff; margin-left: auto; }
+.contact-dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: #fff; opacity: 0.3;
+}
 
 .footer {
   padding: 24px var(--side-padding);
@@ -381,11 +397,10 @@ a:hover { color: #60a5fa; }
 <nav class="nav">
   <div class="nav-brand">WANG JINGYI / PF2027</div>
   <div class="nav-links">
-    <a href="#work">工作经历</a>
-    <a href="#education">教育经历</a>
     <a href="#projects">项目作品</a>
-    <a href="#github">GitHub</a>
-    <a href="#contact">联系</a>
+    <a href="#work">工作经历</a>
+    <a href="香港城市大学-王静怡-27届毕业-一周内到岗-3个月以上.pdf" download>下载简历</a>
+    <a href="#github">联系我</a>
   </div>
 </nav>
 
@@ -676,11 +691,17 @@ a:hover { color: #60a5fa; }
      CONTACT
      ============================================================ -->
 <section class="contact-section" id="contact">
-  <p class="contact-text">期待与您建立联系</p>
-  <div class="contact-links">
-    <a href="mailto:wjingyi598@gmail.com">Email · wjingyi598@gmail.com</a>
-    <a href="https://github.com/Jinkeen" target="_blank">GitHub · @Jinkeen</a>
-    <span style="color:var(--text-tertiary);">WeChat · _Sylvia_0816</span>
+  <div class="contact-block">
+    <p class="contact-label-title">联系方式</p>
+    <div class="contact-row">
+      <span class="contact-key">EMAIL</span>
+      <a href="mailto:wjingyi598@gmail.com" class="contact-val">wjingyi598@gmail.com</a>
+    </div>
+    <div class="contact-row">
+      <span class="contact-key">微信</span>
+      <span class="contact-val">_Sylvia_0816</span>
+    </div>
+    <div class="contact-dot"></div>
   </div>
 </section>
 
