@@ -152,17 +152,38 @@ a:hover { color: #60a5fa; }
    WORK EXPERIENCE
    ============================================================ */
 .work-list { display: flex; flex-direction: column; gap: 48px; }
-.work-item { position: relative; padding-bottom: 48px; border-bottom: 1px solid var(--border); }
+.work-item {
+  position: relative; padding-bottom: 48px; border-bottom: 1px solid var(--border);
+  display: flex; gap: 32px; align-items: flex-start;
+}
 .work-item:last-child { border-bottom: none; padding-bottom: 0; }
-.work-time { font-size: 13px; color: var(--text-tertiary); margin-bottom: 8px; letter-spacing: 0.5px; }
+.work-time {
+  font-size: 13px; color: var(--text-tertiary); letter-spacing: 0.5px;
+  min-width: 130px; flex-shrink: 0; text-align: right; padding-top: 2px;
+}
+.work-details { flex: 1; }
 .work-company { font-size: 18px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px; }
 .work-role { font-size: 14px; color: var(--text-secondary); margin-bottom: 20px; }
-.work-project { margin-top: 16px; padding-left: 16px; border-left: 1px solid var(--border); }
-.work-project-time { font-size: 11px; color: var(--text-tertiary); margin-bottom: 4px; text-transform: uppercase; letter-spacing: 1px; }
-.work-project-title { font-size: 15px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px; }
-.work-project-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.8; }
-.work-bullet { color: var(--text-tertiary); margin-right: 8px; }
+.work-project { margin-top: 16px; padding-left: 20px; border-left: 1px solid var(--border); position: relative; }
+.work-project-time {
+  font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 12px;
+  position: relative;
+}
+.work-project-time::before {
+  content: '●'; font-size: 8px; color: var(--text-tertiary);
+  position: absolute; left: -24.5px; top: 0;
+  line-height: 1.5;
+}
+.work-project-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.8; display: flex; flex-direction: column; gap: 10px; }
+.work-bullet { color: var(--text-tertiary); margin-right: 8px; font-size: 8px; }
 .work-bullet.secondary { opacity: 0.4; }
+.work-bullet-item { color: var(--text-secondary); cursor: default; transition: color 0.2s; display: block; position: relative; }
+.work-bullet-item:hover { color: #fff; }
+.work-bullet-item::before {
+  content: '○'; font-size: 7px; color: var(--text-tertiary);
+  position: absolute; left: -23.5px; top: 0;
+  line-height: 1.8;
+}
 
 /* ============================================================
    EDUCATION
@@ -445,30 +466,36 @@ a:hover { color: #60a5fa; }
         <!-- Work 1 -->
         <div class="work-item fade-in">
           <div class="work-time">2025.9 – 2026.2</div>
+          <div class="work-details">
           <div class="work-company">深圳市合智创新人工智能科技有限公司</div>
           <div class="work-role">AI 产品经理 · 深圳</div>
 
           <div class="work-project">
-            <div class="work-project-time">● 2025.09</div>
-            <div class="work-project-title">LLM 驱动的 AI 绘本产品从 0→1 设计与交付</div>
+            <div class="work-project-time">LLM · Prompt · RAG</div>
             <div class="work-project-desc">
-              主导 LLM 驱动的 AI 绘本产品从 0→1 设计与交付，面向小学低年级课堂场景，完成需求拆解、多轮 Prompt 调优与交互流程设计。将开放式语音输入重构为结构化问答系统，使后端大语言模型调用 token 数减少 40%，文生图 API 延迟从平均 8 秒降至 3 秒以内。基于 1–6 年级语文教材构建 Agent 领域知识库，通过语义对齐与内容约束机制保障绘本生成质量。
+              <span class="work-bullet-item">主导 LLM 驱动的 AI 绘本产品从 0→1 设计与交付，面向小学低年级课堂场景，完成需求拆解、多轮 Prompt 调优与交互流程设计</span>
+              <span class="work-bullet-item">将开放式语音输入重构为结构化问答系统，使后端大语言模型调用 token 数减少 40%，文生图 API 延迟从平均 8 秒降至 3 秒以内</span>
+              <span class="work-bullet-item">基于 1–6 年级语文教材构建 Agent 领域知识库，通过语义对齐与内容约束机制保障绘本生成质量</span>
             </div>
+          </div>
           </div>
         </div>
 
         <!-- Work 2 -->
         <div class="work-item fade-in">
           <div class="work-time">2025.5 – 2025.8</div>
+          <div class="work-details">
           <div class="work-company">边辕视觉科技（上海）有限公司</div>
           <div class="work-role">AR 开发工程师 · 武汉</div>
 
           <div class="work-project">
-            <div class="work-project-time">○ 2025.05</div>
-            <div class="work-project-title">AR 交互模块与虚拟形象开发</div>
+            <div class="work-project-time">Unity · MRTK · AR 交互 · 智能体 · SDK 技术文档</div>
             <div class="work-project-desc">
-              基于 MRTK 开发 AR 交互模块，实现 3D 空间 UI 组件及手势交互逻辑（Hand Ray、Near Interaction）。独立实现虚拟交互形象"小狐狸"，支持自主导航、动画反馈与情境化引导。负责编写中英双语技术文档，涵盖 SDK 配置、AR 眼镜与 PC 调试流程及兼容性与交互问题的实际解决方案。
+              <span class="work-bullet-item">基于 MRTK 开发 AR 交互模块，实现 3D 空间 UI 组件及手势交互逻辑（Hand Ray、Near Interaction）</span>
+              <span class="work-bullet-item">独立实现虚拟交互形象"小狐狸"，支持自主导航、动画反馈与情境化引导</span>
+              <span class="work-bullet-item">负责编写中英双语技术文档，涵盖 SDK 配置、AR 眼镜与 PC 调试流程及兼容性与交互问题的实际解决方案</span>
             </div>
+          </div>
           </div>
         </div>
 
@@ -650,37 +677,16 @@ a:hover { color: #60a5fa; }
       </div>
     </a>
 
-    <!-- GH 2: LanMao -->
-    <a href="https://github.com/Jinkeen/LanMao" target="_blank" class="github-card fade-in" style="color:inherit;text-decoration:none;">
+    <!-- GH 2: IP-web -->
+    <a href="https://github.com/Jinkeen/IP-web" target="_blank" class="github-card fade-in" style="color:inherit;text-decoration:none;">
       <span class="visibility-tag">Public</span>
-      <div class="github-card-name">LanMao</div>
-      <div class="github-card-desc">蓝猫助手核心项目 — 基于 AI 技术的智能辅助工具。</div>
+      <div class="github-card-name">IP-web</div>
+      <div class="github-card-desc">个人作品集网站 — 极简科技风单页简历，纯 HTML/CSS/JS 构建。</div>
       <div class="github-card-meta">
-        <span><span class="github-lang-dot" style="background:#8b8b8b;"></span> —</span>
+        <span><span class="github-lang-dot" style="background:#e34c26;"></span> HTML</span>
         <span>★ 0</span>
       </div>
     </a>
-
-    <!-- GH 3: my-first-website -->
-    <a href="https://github.com/Jinkeen/my-first-website" target="_blank" class="github-card fade-in" style="color:inherit;text-decoration:none;">
-      <span class="visibility-tag">Public</span>
-      <div class="github-card-name">my-first-website</div>
-      <div class="github-card-desc">个人网站初版 — 前端开发与 Web 设计实践项目。</div>
-      <div class="github-card-meta">
-        <span><span class="github-lang-dot" style="background:#8b8b8b;"></span> —</span>
-        <span>★ 0</span>
-      </div>
-    </a>
-
-    <!-- GH 4: Placeholder - AI Agent -->
-    <div class="github-card fade-in" style="opacity:0.4;">
-      <span class="visibility-tag">非公开</span>
-      <div class="github-card-name">experience-aiagent</div>
-      <div class="github-card-desc">测试用户体验与交互逻辑的 AI Experience QA 案例项目。</div>
-      <div class="github-card-meta">
-        <span><span class="github-lang-dot" style="background:#3178c6;"></span> TypeScript</span>
-      </div>
-    </div>
 
   </div>
 </section>
@@ -697,11 +703,10 @@ a:hover { color: #60a5fa; }
       <span class="contact-key">EMAIL</span>
       <a href="mailto:wjingyi598@gmail.com" class="contact-val">wjingyi598@gmail.com</a>
     </div>
-    <div class="contact-row">
+    <div class="contact-row" style="margin-top:24px;">
       <span class="contact-key">微信</span>
       <span class="contact-val">_Sylvia_0816</span>
     </div>
-    <div class="contact-dot"></div>
   </div>
 </section>
 
