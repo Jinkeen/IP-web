@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "agent-vision": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@kitlau/agent-vision-mcp"],
+      "env": {
+        "VISION_API_KEY": "sk-ws-H.RXYDDIP.X3dV.MEQCIDvdzRtCDhHEdDlKnmjcOBsMCGgcyok6UTSLtBO0UXMqAiADwCdq3n3VJ4SYYfeLbOJkavbKj95qhOhxyB6qBxGGeA",
+        "VISION_BASE_URL": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+        "VISION_MODEL_NAME": "qwen-vl-max"
+      }
+    }
+  }
+}

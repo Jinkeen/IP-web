@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WANG JINGYI | 交互设计师 & 产品经理</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+SC:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #000000;
+  --surface: #0d0d0d;
+  --surface-hover: #141414;
+  --border: #222222;
+  --border-light: #2a2a2a;
+  --text-primary: #ffffff;
+  --text-secondary: #b0b0b0;
+  --text-tertiary: #707070;
+  --accent: #3b82f6;
+  --accent-dim: #2563eb;
+  --radius: 10px;
+  --radius-sm: 6px;
+  --max-width: 1280px;
+  --side-padding: 80px;
+  --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
+  color: var(--text-primary);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+a { color: var(--accent); text-decoration: none; transition: var(--transition); }
+a:hover { color: #60a5fa; }
+
+/* ============================================================
+   SCROLLBAR
+   ============================================================ */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #333; border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: #555; }
+
+/* ============================================================
+   NAVIGATION
+   ============================================================ */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 20px var(--side-padding);
+  display: flex; justify-content: space-between; align-items: center;
+  background: rgba(0,0,0,0.85); backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.nav-brand {
+  font-size: 13px; font-weight: 500; color: var(--text-secondary);
+  letter-spacing: 1.5px; text-transform: uppercase;
+}
+.nav-links { display: flex; gap: 32px; align-items: center; }
+.nav-links a {
+  font-size: 13px; color: var(--text-secondary); font-weight: 400;
+  letter-spacing: 0.5px; transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--text-primary); }
+
+/* ============================================================
+   SECTIONS COMMON
+   ============================================================ */
+.section {
+  padding: 100px var(--side-padding);
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+.section-divider {
+  width: 100%; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+  max-width: var(--max-width); margin: 0 auto;
+}
+
+/* Two-column layout */
+.section-grid {
+  display: grid; grid-template-columns: 240px 1fr; gap: 80px;
+  align-items: start;
+}
+.section-label h2 {
+  font-size: 22px; font-weight: 700; color: var(--text-primary);
+  letter-spacing: -0.3px; margin-bottom: 10px;
+}
+.section-label p {
+  font-size: 13px; color: var(--text-tertiary); line-height: 1.6;
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero {
+  padding: 160px var(--side-padding) 80px;
+  max-width: var(--max-width); margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 300px; gap: 80px;
+  align-items: center;
+  min-height: 100vh;
+}
+.hero-name {
+  font-size: clamp(72px, 8vw, 128px);
+  font-weight: 900; line-height: 0.95;
+  letter-spacing: -3px; color: var(--text-primary);
+  margin-bottom: 24px;
+}
+.hero-name span { display: block; font-size: 0.4em; font-weight: 600; letter-spacing: 0; color: var(--text-secondary); margin-top: 8px; }
+.hero-school { font-size: 15px; color: var(--text-secondary); margin-bottom: 6px; }
+.hero-title { font-size: 15px; font-weight: 600; color: var(--text-primary); margin-bottom: 20px; }
+.hero-bio { font-size: 14px; color: var(--text-secondary); line-height: 1.8; max-width: 480px; }
+.hero-grad {
+  display: inline-block; margin-top: 20px; font-size: 12px; color: var(--text-tertiary);
+  border: 1px solid var(--border); border-radius: var(--radius-sm);
+  padding: 6px 14px;
+}
+
+/* Hero photo card */
+.hero-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); overflow: hidden;
+  transition: var(--transition);
+}
+.hero-card:hover { transform: translateY(-4px); border-color: var(--border-light); }
+.hero-card-img {
+  width: 100%; aspect-ratio: 3/4; background: #1a1a1a;
+  display: flex; align-items: center; justify-content: center;
+  color: #333; font-size: 13px; overflow: hidden;
+}
+.hero-card-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.hero-card-info {
+  padding: 16px 20px; display: flex; justify-content: space-around;
+  text-align: center;
+}
+.hero-card-info .stat { font-size: 12px; color: var(--text-tertiary); }
+.hero-card-info .stat strong { display: block; font-size: 18px; color: var(--text-primary); font-weight: 700; }
+
+/* ============================================================
+   WORK EXPERIENCE
+   ============================================================ */
+.work-list { display: flex; flex-direction: column; gap: 48px; }
+.work-item { position: relative; padding-bottom: 48px; border-bottom: 1px solid var(--border); }
+.work-item:last-child { border-bottom: none; padding-bottom: 0; }
+.work-time { font-size: 13px; color: var(--text-tertiary); margin-bottom: 8px; letter-spacing: 0.5px; }
+.work-company { font-size: 18px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px; }
+.work-role { font-size: 14px; color: var(--text-secondary); margin-bottom: 20px; }
+.work-project { margin-top: 16px; padding-left: 16px; border-left: 1px solid var(--border); }
+.work-project-time { font-size: 11px; color: var(--text-tertiary); margin-bottom: 4px; text-transform: uppercase; letter-spacing: 1px; }
+.work-project-title { font-size: 15px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px; }
+.work-project-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.8; }
+.work-bullet { color: var(--text-tertiary); margin-right: 8px; }
+.work-bullet.secondary { opacity: 0.4; }
+
+/* ============================================================
+   EDUCATION
+   ============================================================ */
+.edu-section { position: relative; overflow: hidden; }
+.edu-watermark {
+  position: absolute; left: 0; top: 50%; transform: translateY(-50%);
+  font-size: 80px; font-weight: 900; color: rgba(255,255,255,0.015);
+  white-space: nowrap; pointer-events: none; user-select: none;
+  letter-spacing: -2px;
+}
+.edu-item { margin-bottom: 48px; padding-bottom: 48px; border-bottom: 1px solid var(--border); }
+.edu-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.edu-time { font-size: 13px; color: var(--text-tertiary); margin-bottom: 8px; }
+.edu-school { font-size: 18px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px; }
+.edu-degree { font-size: 14px; color: var(--text-secondary); margin-bottom: 16px; }
+.edu-detail-title { font-size: 12px; font-weight: 600; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; margin-top: 16px; }
+.edu-courses, .edu-awards { font-size: 13px; color: var(--text-secondary); line-height: 1.8; }
+.edu-awards { list-style: none; padding: 0; }
+.edu-awards li { margin-bottom: 6px; }
+.edu-awards li::before { content: '○'; color: var(--text-tertiary); margin-right: 8px; font-size: 10px; }
+.edu-gpa {
+  display: inline-block; font-size: 12px; color: var(--accent);
+  border: 1px solid rgba(59,130,246,0.3); border-radius: var(--radius-sm);
+  padding: 4px 12px; margin-top: 12px;
+}
+
+/* ============================================================
+   PROJECT PORTFOLIO
+   ============================================================ */
+.project-header {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 48px; flex-wrap: wrap; gap: 20px;
+}
+.project-title { font-size: 22px; font-weight: 700; }
+
+.filter-tabs { display: flex; gap: 6px; }
+.filter-tab {
+  padding: 8px 18px; border-radius: 20px; font-size: 13px;
+  font-weight: 500; cursor: pointer; transition: var(--transition);
+  color: var(--text-secondary); background: transparent;
+  border: 1px solid var(--border);
+  white-space: nowrap;
+}
+.filter-tab:hover { border-color: var(--text-tertiary); color: var(--text-primary); }
+.filter-tab.active { background: #fff; color: #000; border-color: #fff; }
+.filter-tab .count { font-size: 11px; opacity: 0.7; }
+
+.project-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+}
+.project-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); overflow: hidden;
+  transition: var(--transition); cursor: pointer;
+  position: relative;
+}
+.project-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-light);
+  background: var(--surface-hover);
+}
+.project-card:hover .project-arrow {
+  transform: translate(4px, -4px);
+  opacity: 1;
+}
+.project-cover {
+  width: 100%; aspect-ratio: 16/10; background: #141414;
+  overflow: hidden; position: relative;
+}
+.project-cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.project-cover-placeholder {
+  width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
+  background: #1a1a1a; color: #333; font-size: 13px;
+}
+.project-arrow {
+  position: absolute; top: 14px; right: 14px;
+  width: 28px; height: 28px; border-radius: 50%;
+  background: rgba(255,255,255,0.08); backdrop-filter: blur(4px);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; color: #fff; opacity: 0; transition: var(--transition);
+}
+.project-body { padding: 20px; }
+.project-name { font-size: 17px; font-weight: 600; margin-bottom: 6px; }
+.project-subtitle { font-size: 12px; color: var(--text-tertiary); margin-bottom: 14px; line-height: 1.5; }
+.project-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.project-tag {
+  padding: 4px 10px; border-radius: var(--radius-sm);
+  font-size: 11px; color: var(--text-secondary);
+  background: rgba(255,255,255,0.05); border: 1px solid var(--border);
+  white-space: nowrap;
+}
+
+/* ============================================================
+   RESEARCH SECTION
+   ============================================================ */
+.research-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 28px;
+  transition: var(--transition);
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 20px;
+}
+.research-card:hover { border-color: var(--border-light); background: var(--surface-hover); }
+.research-info { flex: 1; }
+.research-label { font-size: 11px; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+.research-title { font-size: 16px; font-weight: 600; color: var(--text-primary); line-height: 1.5; }
+.research-status {
+  padding: 6px 14px; border-radius: 20px; font-size: 12px;
+  border: 1px solid var(--border); color: var(--text-secondary);
+  white-space: nowrap;
+}
+.research-link {
+  font-size: 13px; color: var(--accent); white-space: nowrap;
+  display: flex; align-items: center; gap: 6px; transition: var(--transition);
+}
+.research-link:hover { gap: 12px; }
+.research-link .arrow { transition: var(--transition); }
+
+/* ============================================================
+   GITHUB SECTION
+   ============================================================ */
+.github-header {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 32px;
+}
+.github-header h2 { font-size: 22px; font-weight: 700; }
+.github-link {
+  font-size: 13px; color: var(--accent);
+  display: flex; align-items: center; gap: 6px;
+}
+.github-link:hover { gap: 10px; }
+.github-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;
+}
+.github-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 22px;
+  transition: var(--transition); cursor: pointer;
+  position: relative;
+}
+.github-card:hover { border-color: var(--border-light); transform: translateY(-2px); }
+.github-card-name {
+  font-size: 15px; font-weight: 600; color: var(--accent); margin-bottom: 8px;
+}
+.github-card-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 14px; }
+.github-card-meta { display: flex; align-items: center; gap: 14px; font-size: 12px; color: var(--text-tertiary); }
+.github-lang-dot { width: 8px; height: 8px; border-radius: 50%; background: #f0db4f; display: inline-block; }
+.github-card .visibility-tag {
+  position: absolute; top: 16px; right: 16px;
+  padding: 3px 10px; border-radius: 12px; font-size: 11px;
+  border: 1px solid var(--border); color: var(--text-tertiary);
+}
+
+/* ============================================================
+   CONTACT / FOOTER
+   ============================================================ */
+.contact-section { text-align: center; padding: 80px var(--side-padding) 60px; }
+.contact-text { font-size: 14px; color: var(--text-secondary); margin-bottom: 20px; }
+.contact-links { display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; }
+.contact-links a { font-size: 14px; color: var(--text-secondary); transition: color 0.2s; }
+.contact-links a:hover { color: var(--text-primary); }
+
+.footer {
+  padding: 24px var(--side-padding);
+  display: flex; justify-content: space-between; align-items: center;
+  max-width: var(--max-width); margin: 0 auto;
+  border-top: 1px solid var(--border);
+  font-size: 12px; color: var(--text-tertiary);
+}
+.lang-switch { display: flex; gap: 4px; }
+.lang-btn {
+  width: 36px; height: 36px; border-radius: 50%;
+  border: 1px solid var(--border); cursor: pointer;
+  font-size: 11px; font-weight: 600;
+  background: transparent; color: var(--text-secondary);
+  transition: var(--transition);
+  display: flex; align-items: center; justify-content: center;
+}
+.lang-btn.active { background: #fff; color: #000; border-color: #fff; }
+.lang-btn:hover:not(.active) { border-color: var(--text-tertiary); color: var(--text-primary); }
+
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
+.fade-in {
+  opacity: 0; transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 900px) {
+  :root { --side-padding: 28px; }
+  .hero { grid-template-columns: 1fr; gap: 48px; padding-top: 120px; min-height: auto; }
+  .hero-card { max-width: 220px; }
+  .section-grid { grid-template-columns: 1fr; gap: 32px; }
+  .project-grid, .github-grid { grid-template-columns: 1fr; }
+  .nav-links { display: none; }
+  .edu-watermark { font-size: 40px; }
+}
+@media (min-width: 901px) and (max-width: 1100px) {
+  :root { --side-padding: 48px; }
+  .hero { gap: 48px; grid-template-columns: 1fr 240px; }
+  .section-grid { gap: 48px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     NAV
+     ============================================================ -->
+<nav class="nav">
+  <div class="nav-brand">WANG JINGYI / PF2027</div>
+  <div class="nav-links">
+    <a href="#work">工作经历</a>
+    <a href="#education">教育经历</a>
+    <a href="#projects">项目作品</a>
+    <a href="#github">GitHub</a>
+    <a href="#contact">联系</a>
+  </div>
+</nav>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="hero">
+  <div class="hero-main">
+    <h1 class="hero-name fade-in">
+      王静怡
+      <span>Sylvia Wang</span>
+    </h1>
+    <p class="hero-school fade-in">毕业于香港城市大学</p>
+    <p class="hero-title fade-in">交互设计师 & 产品经理。</p>
+    <p class="hero-bio fade-in">专注于交互体验设计 / 产品战略思维 / AI 驱动的全链路产品研发。</p>
+    <div class="hero-grad fade-in">预计毕业时间：2027 年 6 月</div>
+  </div>
+  <div class="hero-card fade-in">
+    <div class="hero-card-img">
+      <!-- ★ 替换: 个人照片，建议 3:4 比例半身照 ★ -->
+      <img src="images/hero-photo-个人照片-半身照.jpg" alt="王静怡" onerror="this.style.display='none';this.parentElement.innerHTML='<div style=width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#1a1a1a;color:#333;font-size:13px>个人照片<br>3:4 半身照</div>'">
+    </div>
+    <div class="hero-card-info">
+      <div class="stat"><strong>23</strong>年龄</div>
+      <div class="stat"><strong>1 年</strong>工作经验</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     WORK EXPERIENCE
+     ============================================================ -->
+<section class="section" id="work">
+  <div class="section-grid">
+    <div class="section-label">
+      <h2>工作经历</h2>
+      <p>在 AI 产品设计与 AR 交互开发方向拥有丰富的实践经验。</p>
+    </div>
+    <div class="section-content">
+      <div class="work-list">
+
+        <!-- Work 1 -->
+        <div class="work-item fade-in">
+          <div class="work-time">2025.9 – 2026.2</div>
+          <div class="work-company">深圳市合智创新人工智能科技有限公司</div>
+          <div class="work-role">AI 产品经理 · 深圳</div>
+
+          <div class="work-project">
+            <div class="work-project-time">● 2025.09</div>
+            <div class="work-project-title">LLM 驱动的 AI 绘本产品从 0→1 设计与交付</div>
+            <div class="work-project-desc">
+              主导 LLM 驱动的 AI 绘本产品从 0→1 设计与交付，面向小学低年级课堂场景，完成需求拆解、多轮 Prompt 调优与交互流程设计。将开放式语音输入重构为结构化问答系统，使后端大语言模型调用 token 数减少 40%，文生图 API 延迟从平均 8 秒降至 3 秒以内。基于 1–6 年级语文教材构建 Agent 领域知识库，通过语义对齐与内容约束机制保障绘本生成质量。
+            </div>
+          </div>
+        </div>
+
+        <!-- Work 2 -->
+        <div class="work-item fade-in">
+          <div class="work-time">2025.5 – 2025.8</div>
+          <div class="work-company">边辕视觉科技（上海）有限公司</div>
+          <div class="work-role">AR 开发工程师 · 武汉</div>
+
+          <div class="work-project">
+            <div class="work-project-time">○ 2025.05</div>
+            <div class="work-project-title">AR 交互模块与虚拟形象开发</div>
+            <div class="work-project-desc">
+              基于 MRTK 开发 AR 交互模块，实现 3D 空间 UI 组件及手势交互逻辑（Hand Ray、Near Interaction）。独立实现虚拟交互形象"小狐狸"，支持自主导航、动画反馈与情境化引导。负责编写中英双语技术文档，涵盖 SDK 配置、AR 眼镜与 PC 调试流程及兼容性与交互问题的实际解决方案。
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ============================================================
+     EDUCATION
+     ============================================================ -->
+<section class="section edu-section" id="education">
+  <div class="section-grid">
+    <div class="section-label">
+      <h2>教育经历<br>与奖项</h2>
+    </div>
+    <div class="section-content" style="position:relative;">
+      <!-- Watermark -->
+      <div class="edu-watermark">CityU · HCI</div>
+
+      <!-- School 1 -->
+      <div class="edu-item fade-in">
+        <div class="edu-time">2025.9 – 至今（预计 2027.6 毕业）</div>
+        <div class="edu-school">香港城市大学</div>
+        <div class="edu-degree">艺术学硕士（人机交互） · QS 62</div>
+        <div class="edu-detail-title">主要课程</div>
+        <div class="edu-courses">人工智能物联网 · 人机交互 · 机器学习：算法与应用 · 虚拟现实技术与应用 · 信息可视化</div>
+      </div>
+
+      <!-- School 2 -->
+      <div class="edu-item fade-in">
+        <div class="edu-time">2021.9 – 2025.6</div>
+        <div class="edu-school">武汉工程大学</div>
+        <div class="edu-degree">工学学士（数字媒体技术）</div>
+        <div class="edu-detail-title">主要课程</div>
+        <div class="edu-courses">高级程序设计 A (94) · 线性代数 (92) · 数字逻辑 (97) · 软件工程 (93) · 计算机图形学 (95) · 数字图像处理</div>
+        <div class="edu-gpa">GPA 3.76 / 5.0 — Top 2%</div>
+        <div class="edu-detail-title">荣誉与奖项</div>
+        <ul class="edu-awards">
+          <li>蓝桥杯全国二等奖</li>
+          <li>计算机设计大赛中南地区赛三等奖</li>
+          <li>一等奖学金 (2024-2025) · 二等奖学金 (2023-2024)</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ============================================================
+     PROJECT PORTFOLIO
+     ============================================================ -->
+<section class="section" id="projects">
+  <div class="project-header">
+    <h2 class="project-title">项目作品集</h2>
+    <div class="filter-tabs">
+      <button class="filter-tab active" data-filter="all">全部 <span class="count">(03)</span></button>
+      <button class="filter-tab" data-filter="ai">AI 产品 <span class="count">(01)</span></button>
+      <button class="filter-tab" data-filter="hci">HCI 研究 <span class="count">(01)</span></button>
+      <button class="filter-tab" data-filter="dev">开发 <span class="count">(01)</span></button>
+    </div>
+  </div>
+
+  <div class="project-grid">
+
+    <!-- Project 1: 智能眼镜语言学习系统 -->
+    <div class="project-card fade-in" data-category="hci">
+      <div class="project-cover">
+        <!-- ★ 替换: 智能眼镜语言学习系统 - 封面图，建议展示AR/眼镜UI界面 ★ -->
+        <img src="images/project-01-智能眼镜语言学习系统-AR眼镜界面封面.jpg" alt="智能眼镜语言学习系统" onerror="this.style.display='none';this.parentElement.innerHTML='<div class=project-cover-placeholder>智能眼镜语言学习系统<br>封面图 · AR眼镜界面</div>'">
+        <div class="project-arrow">↗</div>
+      </div>
+      <div class="project-body">
+        <div class="project-name">智能眼镜语言学习系统</div>
+        <div class="project-subtitle">AR 眼镜 · 多模态交互 · 语音学习</div>
+        <div class="project-tags">
+          <span class="project-tag">目标检测</span>
+          <span class="project-tag">语音识别</span>
+          <span class="project-tag">多模态交互</span>
+          <span class="project-tag">Whisper</span>
+          <span class="project-tag">CTML 理论</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 2: 共鸣时刻 -->
+    <div class="project-card fade-in" data-category="dev">
+      <div class="project-cover">
+        <!-- ★ 替换: 共鸣时刻 - 封面图，建议展示2D游戏画面或手势识别演示 ★ -->
+        <img src="images/project-02-共鸣时刻-手势识别2D游戏封面.jpg" alt="共鸣时刻" onerror="this.style.display='none';this.parentElement.innerHTML='<div class=project-cover-placeholder>共鸣时刻<br>封面图 · 2D游戏/手势识别</div>'">
+        <div class="project-arrow">↗</div>
+      </div>
+      <div class="project-body">
+        <div class="project-name">共鸣时刻</div>
+        <div class="project-subtitle">基于手势识别的 2D 冒险游戏 · 校级科研项目</div>
+        <div class="project-tags">
+          <span class="project-tag">图像识别</span>
+          <span class="project-tag">OpenCV</span>
+          <span class="project-tag">CNN</span>
+          <span class="project-tag">Unity</span>
+          <span class="project-tag">手势交互</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 3: LanmaoAssist -->
+    <div class="project-card fade-in" data-category="ai">
+      <div class="project-cover">
+        <!-- ★ 替换: LanmaoAssist - 封面图，建议展示房源管理后台界面 ★ -->
+        <img src="images/project-03-LanmaoAssist-房源管理系统封面.jpg" alt="LanmaoAssist" onerror="this.style.display='none';this.parentElement.innerHTML='<div class=project-cover-placeholder>LanmaoAssist<br>封面图 · 房源管理后台</div>'">
+        <div class="project-arrow">↗</div>
+      </div>
+      <div class="project-body">
+        <div class="project-name">LanmaoAssist</div>
+        <div class="project-subtitle">房东端房源管理系统 · 全栈项目</div>
+        <div class="project-tags">
+          <span class="project-tag">JavaScript</span>
+          <span class="project-tag">房源管理</span>
+          <span class="project-tag">全栈开发</span>
+          <span class="project-tag">产品设计</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ============================================================
+     RESEARCH
+     ============================================================ -->
+<section class="section" id="research">
+  <div class="section-grid">
+    <div class="section-label">
+      <h2>部分研究</h2>
+      <p>围绕多模态交互、语音学习反馈与手势识别展开的当前研究方向。</p>
+    </div>
+    <div class="section-content">
+      <div class="research-card fade-in">
+        <div class="research-info">
+          <div class="research-label">01 / 研究课题</div>
+          <div class="research-title">基于 CTML 理论的多模态语音学习反馈系统研究 — 提取语音中 pitch 与 intensity 声学特征，设计并实现 3 种多模态可视化反馈方案</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:20px;">
+          <span class="research-status">研究中</span>
+          <a href="#" class="research-link">查看论文 <span class="arrow">→</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ============================================================
+     GITHUB / OPEN SOURCE
+     ============================================================ -->
+<section class="section" id="github">
+  <div class="github-header">
+    <h2>个人 AI 产品 / GitHub</h2>
+    <a href="https://github.com/Jinkeen" target="_blank" class="github-link">查看 GITHUB 主页 →</a>
+  </div>
+
+  <div class="github-grid">
+
+    <!-- GH 1: LanmaoAssist -->
+    <a href="https://github.com/Jinkeen/LanmaoAssist" target="_blank" class="github-card fade-in" style="color:inherit;text-decoration:none;">
+      <span class="visibility-tag">Public</span>
+      <div class="github-card-name">LanmaoAssist</div>
+      <div class="github-card-desc">房东端房源管理系统 — 面向租房场景的房源信息管理与租客交互工具。</div>
+      <div class="github-card-meta">
+        <span><span class="github-lang-dot"></span> JavaScript</span>
+        <span>★ 2</span>
+      </div>
+    </a>
+
+    <!-- GH 2: LanMao -->
+    <a href="https://github.com/Jinkeen/LanMao" target="_blank" class="github-card fade-in" style="color:inherit;text-decoration:none;">
+      <span class="visibility-tag">Public</span>
+      <div class="github-card-name">LanMao</div>
+      <div class="github-card-desc">蓝猫助手核心项目 — 基于 AI 技术的智能辅助工具。</div>
+      <div class="github-card-meta">
+        <span><span class="github-lang-dot" style="background:#8b8b8b;"></span> —</span>
+        <span>★ 0</span>
+      </div>
+    </a>
+
+    <!-- GH 3: my-first-website -->
+    <a href="https://github.com/Jinkeen/my-first-website" target="_blank" class="github-card fade-in" style="color:inherit;text-decoration:none;">
+      <span class="visibility-tag">Public</span>
+      <div class="github-card-name">my-first-website</div>
+      <div class="github-card-desc">个人网站初版 — 前端开发与 Web 设计实践项目。</div>
+      <div class="github-card-meta">
+        <span><span class="github-lang-dot" style="background:#8b8b8b;"></span> —</span>
+        <span>★ 0</span>
+      </div>
+    </a>
+
+    <!-- GH 4: Placeholder - AI Agent -->
+    <div class="github-card fade-in" style="opacity:0.4;">
+      <span class="visibility-tag">非公开</span>
+      <div class="github-card-name">experience-aiagent</div>
+      <div class="github-card-desc">测试用户体验与交互逻辑的 AI Experience QA 案例项目。</div>
+      <div class="github-card-meta">
+        <span><span class="github-lang-dot" style="background:#3178c6;"></span> TypeScript</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ============================================================
+     CONTACT
+     ============================================================ -->
+<section class="contact-section" id="contact">
+  <p class="contact-text">期待与您建立联系</p>
+  <div class="contact-links">
+    <a href="mailto:wjingyi598@gmail.com">Email · wjingyi598@gmail.com</a>
+    <a href="https://github.com/Jinkeen" target="_blank">GitHub · @Jinkeen</a>
+    <span style="color:var(--text-tertiary);">WeChat · _Sylvia_0816</span>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="footer">
+  <span>© 2026 王静怡 Sylvia Wang</span>
+  <div class="lang-switch">
+    <button class="lang-btn" onclick="switchLang('en')">EN</button>
+    <button class="lang-btn active" onclick="switchLang('zh')">中文</button>
+  </div>
+</footer>
+
+<script>
+// ============================================================
+// Scroll-triggered fade-in animations
+// ============================================================
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// ============================================================
+// Filter tabs for project portfolio
+// ============================================================
+document.querySelectorAll('.filter-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+
+    const filter = tab.dataset.filter;
+    document.querySelectorAll('.project-card').forEach(card => {
+      if (filter === 'all' || card.dataset.category === filter) {
+        card.style.display = '';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  });
+});
+
+// ============================================================
+// Language switch
+// ============================================================
+function switchLang(lang) {
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+  document.querySelector(`.lang-btn[onclick="switchLang('${lang}')"]`).classList.add('active');
+  // Placeholder for future i18n support
+}
+
+// ============================================================
+// Active nav link highlight on scroll
+// ============================================================
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(section => {
+    const top = section.offsetTop - 100;
+    if (window.scrollY >= top) current = section.getAttribute('id');
+  });
+  navLinks.forEach(link => {
+    link.style.color = link.getAttribute('href') === `#${current}` ? '#fff' : '';
+  });
+});
+</script>
+
+</body>
+</html>
