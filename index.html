@@ -195,9 +195,16 @@ a:hover { color: #60a5fa; }
   white-space: nowrap; pointer-events: none; user-select: none;
   letter-spacing: -2px;
 }
-.edu-item { margin-bottom: 48px; padding-bottom: 48px; border-bottom: 1px solid var(--border); }
+.edu-item {
+  margin-bottom: 48px; padding-bottom: 48px; border-bottom: 1px solid var(--border);
+  display: flex; gap: 32px; align-items: flex-start;
+}
 .edu-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-.edu-time { font-size: 13px; color: var(--text-tertiary); margin-bottom: 8px; }
+.edu-time {
+  font-size: 13px; color: var(--text-tertiary);
+  min-width: 130px; flex-shrink: 0; text-align: right; padding-top: 2px;
+}
+.edu-details { flex: 1; }
 .edu-school { font-size: 18px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px; }
 .edu-degree { font-size: 14px; color: var(--text-secondary); margin-bottom: 16px; }
 .edu-detail-title { font-size: 12px; font-weight: 600; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; margin-top: 16px; }
@@ -520,16 +527,19 @@ a:hover { color: #60a5fa; }
 
       <!-- School 1 -->
       <div class="edu-item fade-in">
-        <div class="edu-time">2025.9 – 至今（预计 2027.6 毕业）</div>
+        <div class="edu-time">2025.9 – 至今<br><span style="font-size:11px;color:#555;">预计 2027.6 毕业</span></div>
+        <div class="edu-details">
         <div class="edu-school">香港城市大学</div>
         <div class="edu-degree">艺术学硕士（人机交互） · QS 62</div>
         <div class="edu-detail-title">主要课程</div>
         <div class="edu-courses">人工智能物联网 · 人机交互 · 机器学习：算法与应用 · 虚拟现实技术与应用 · 信息可视化</div>
       </div>
+      </div>
 
       <!-- School 2 -->
       <div class="edu-item fade-in">
         <div class="edu-time">2021.9 – 2025.6</div>
+        <div class="edu-details">
         <div class="edu-school">武汉工程大学</div>
         <div class="edu-degree">工学学士（数字媒体技术）</div>
         <div class="edu-detail-title">主要课程</div>
@@ -541,6 +551,7 @@ a:hover { color: #60a5fa; }
           <li>计算机设计大赛中南地区赛三等奖</li>
           <li>一等奖学金 (2024-2025) · 二等奖学金 (2023-2024)</li>
         </ul>
+      </div>
       </div>
 
     </div>
