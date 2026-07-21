@@ -659,7 +659,7 @@ a:hover { color: #60a5fa; }
   <div class="project-grid">
 
     <!-- Project 1: 语音韵律可视化研究 -->
-    <div class="project-card fade-in" data-category="hci">
+    <div class="project-card fade-in" data-category="hci" onclick="document.getElementById('project-modal').classList.add('active')" style="cursor:pointer;">
       <div class="project-cover">
         <img src="语言学习研究效果图.png" alt="基于语音韵律可视化的英语发音学习支持研究" onerror="this.style.display='none';this.parentElement.innerHTML='<div class=project-cover-placeholder>语音韵律可视化研究<br>封面图 · 语音学习研究</div>'">
         <div class="project-arrow">↗</div>
@@ -675,28 +675,25 @@ a:hover { color: #60a5fa; }
       </div>
     </div>
 
-    <!-- Project 2: 共鸣时刻 -->
-    <div class="project-card fade-in" data-category="dev">
+    <!-- Project 2: 发散型交互体验设计 -->
+    <div class="project-card fade-in" data-category="dev" onclick="document.getElementById('ux-modal').classList.add('active')" style="cursor:pointer;">
       <div class="project-cover">
-        <!-- ★ 替换: 共鸣时刻 - 封面图，建议展示2D游戏画面或手势识别演示 ★ -->
-        <img src="images/project-02-共鸣时刻-手势识别2D游戏封面.jpg" alt="共鸣时刻" onerror="this.style.display='none';this.parentElement.innerHTML='<div class=project-cover-placeholder>共鸣时刻<br>封面图 · 2D游戏/手势识别</div>'">
-        <div class="project-arrow">↗</div>
+        <img src="images/project-02-共鸣时刻-手势识别2D游戏封面.jpg" alt="发散型交互体验设计" onerror="this.style.display='none';this.parentElement.innerHTML='<div class=project-cover-placeholder>发散型交互体验设计<br>封面图 · 交互体验合集</div>'">
+        <div class="project-arrow">&nearr;</div>
       </div>
       <div class="project-body">
-        <div class="project-name">共鸣时刻</div>
-        <div class="project-subtitle">基于手势识别的 2D 冒险游戏 · 校级科研项目</div>
+        <div class="project-name">发散型交互体验设计</div>
+        <div class="project-subtitle">UI | XR | 游戏化设计 | 可穿戴运动装置</div>
         <div class="project-tags">
-          <span class="project-tag">图像识别</span>
-          <span class="project-tag">OpenCV</span>
-          <span class="project-tag">CNN</span>
-          <span class="project-tag">Unity</span>
-          <span class="project-tag">手势交互</span>
+          <span class="project-tag">人机交互</span>
+          <span class="project-tag">交互体验设计</span>
+          <span class="project-tag">产品/UX</span>
         </div>
       </div>
     </div>
 
     <!-- Project 3: LanmaoAssist -->
-    <div class="project-card fade-in" data-category="ai">
+    <div class="project-card fade-in" data-category="ai" onclick="document.getElementById('project-modal').classList.add('active')" style="cursor:pointer;">
       <div class="project-cover">
         <!-- ★ 替换: LanmaoAssist - 封面图，建议展示房源管理后台界面 ★ -->
         <img src="images/project-03-LanmaoAssist-房源管理系统封面.jpg" alt="LanmaoAssist" onerror="this.style.display='none';this.parentElement.innerHTML='<div class=project-cover-placeholder>LanmaoAssist<br>封面图 · 房源管理后台</div>'">
@@ -863,20 +860,14 @@ window.addEventListener('scroll', () => {
 // Project Modal (runs after DOM is ready)
 // ============================================================
 document.addEventListener('DOMContentLoaded', () => {
-  const modal = document.getElementById('project-modal');
-  const modalClose = document.getElementById('modal-close');
-  if (!modal || !modalClose) return;
-
-  document.querySelectorAll('.project-card').forEach(card => {
-    card.addEventListener('click', () => modal.classList.add('active'));
+  // Close handlers for all modals
+  document.querySelectorAll('.modal-overlay').forEach(function(m) {
+    var btn = m.querySelector('button');
+    if (btn) btn.addEventListener('click', function() { m.classList.remove('active'); });
+    m.addEventListener('click', function(e) { if (e.target === m) m.classList.remove('active'); });
   });
-
-  modalClose.addEventListener('click', () => modal.classList.remove('active'));
-  modal.addEventListener('click', (e) => {
-    if (e.target === modal) modal.classList.remove('active');
-  });
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') modal.classList.remove('active');
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') document.querySelectorAll('.modal-overlay').forEach(function(m) { m.classList.remove('active'); });
   });
 });
 </script>
@@ -936,6 +927,77 @@ document.addEventListener('DOMContentLoaded', () => {
     <div class="modal-separator"></div>
     <div class="modal-poster-section fade-in">
       <img src="images/poster-detail.jpg" alt="学术海报完整展示">
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ============================================================
+     UX PORTFOLIO MODAL
+     ============================================================ -->
+<div class="modal-overlay" id="ux-modal">
+  <button class="modal-close ux-close">&times;</button>
+  <div class="modal-container">
+    <div class="modal-label">Interactive Design · Individual Project</div>
+    <div class="modal-title" style="font-size:56px;line-height:1.05;">发散型交互体验设计</div>
+    <div class="modal-subtitle" style="margin-bottom:32px;">Preview &nbsp; 2024.8 &ndash; 2025.5</div>
+    <div class="modal-info-row">
+      <div class="modal-info-label">项目产出</div>
+      <div class="modal-info-text">UI · XR · 游戏化设计 · 可穿戴运动装置</div>
+    </div>
+    <div class="modal-info-row">
+      <div class="modal-info-label">页数（及图片数）</div>
+      <div class="modal-info-text">28 张视觉案例整合展示</div>
+    </div>
+    <div class="modal-info-row">
+      <div class="modal-info-label">项目标签</div>
+      <div class="modal-tags">
+        <span class="modal-tag">人机交互</span>
+        <span class="modal-tag">交互体验设计</span>
+        <span class="modal-tag">产品/UX</span>
+      </div>
+    </div>
+    <div class="modal-separator"></div>
+    <div class="ux-project-group">
+      <h3 class="ux-project-title">Resonance Moments</h3>
+      <div class="ux-img-grid"><div class="ux-img-card"><img src="images/ux-portfolio/项目一Resonance Moments/1.12.png" alt="1.12.png" loading="lazy"><span class="ux-img-name">1.12.png</span></div>
+<div class="ux-img-card"><img src="images/ux-portfolio/项目一Resonance Moments/2.2345.png" alt="2.2345.png" loading="lazy"><span class="ux-img-name">2.2345.png</span></div>
+<div class="ux-img-card"><img src="images/ux-portfolio/项目一Resonance Moments/3.2.png" alt="3.2.png" loading="lazy"><span class="ux-img-name">3.2.png</span></div>
+<div class="ux-img-card"><img src="images/ux-portfolio/项目一Resonance Moments/4.123 oknow.png" alt="4.123 oknow.png" loading="lazy"><span class="ux-img-name">4.123 oknow.png</span></div>
+<div class="ux-img-card"><img src="images/ux-portfolio/项目一Resonance Moments/5.1.png" alt="5.1.png" loading="lazy"><span class="ux-img-name">5.1.png</span></div>
+<div class="ux-img-card"><img src="images/ux-portfolio/项目一Resonance Moments/6.1.png" alt="6.1.png" loading="lazy"><span class="ux-img-name">6.1.png</span></div>
+<div class="ux-img-card"><img src="images/ux-portfolio/项目一Resonance Moments/7.12.png" alt="7.12.png" loading="lazy"><span class="ux-img-name">7.12.png</span></div></div>
+    </div>
+<div class="ux-project-group">
+      <h3 class="ux-project-title">Lantern Igniter</h3>
+      <div class="ux-img-grid"><div class="ux-img-card"><img src="images/ux-portfolio/项目二Lantern Igniter/1.png" alt="1.png" loading="lazy"><span class="ux-img-name">1.png</span></div>
+<div class="ux-img-card"><img src="images/ux-portfolio/项目二Lantern Igniter/2.png" alt="2.png" loading="lazy"><span class="ux-img-name">2.png</span></div>
+<div class="ux-img-card"><img src="images/ux-portfolio/项目二Lantern Igniter/3.png" alt="3.png" loading="lazy"><span class="ux-img-name">3.png</span></div>
+<div class="ux-img-card"><img src="images/ux-portfolio/项目二Lantern Igniter/4.png" alt="4.png" loading="lazy"><span class="ux-img-name">4.png</span></div>
+<div class="ux-img-card"><img src="images/ux-portfolio/项目二Lantern Igniter/5.1.png" alt="5.1.png" loading="lazy"><span class="ux-img-name">5.1.png</span></div>
+<div class="ux-img-card"><img src="images/ux-portfolio/项目二Lantern Igniter/6.1.png" alt="6.1.png" loading="lazy"><span class="ux-img-name">6.1.png</span></div>
+<div class="ux-img-card"><img src="images/ux-portfolio/项目二Lantern Igniter/7.png" alt="7.png" loading="lazy"><span class="ux-img-name">7.png</span></div></div>
+    </div>
+<div class="ux-project-group">
+      <h3 class="ux-project-title">Trunk Plan</h3>
+      <div class="ux-img-grid"><div class="ux-img-card"><img src="images/ux-portfolio/项目三Trunk Plan/1.45.png" alt="1.45.png" loading="lazy"><span class="ux-img-name">1.45.png</span></div>
+<div class="ux-img-card"><img src="images/ux-portfolio/项目三Trunk Plan/2.345.png" alt="2.345.png" loading="lazy"><span class="ux-img-name">2.345.png</span></div>
+<div class="ux-img-card"><img src="images/ux-portfolio/项目三Trunk Plan/3.23.png" alt="3.23.png" loading="lazy"><span class="ux-img-name">3.23.png</span></div>
+<div class="ux-img-card"><img src="images/ux-portfolio/项目三Trunk Plan/3.23test.png" alt="3.23test.png" loading="lazy"><span class="ux-img-name">3.23test.png</span></div>
+<div class="ux-img-card"><img src="images/ux-portfolio/项目三Trunk Plan/4.34.png" alt="4.34.png" loading="lazy"><span class="ux-img-name">4.34.png</span></div>
+<div class="ux-img-card"><img src="images/ux-portfolio/项目三Trunk Plan/5.234567.png" alt="5.234567.png" loading="lazy"><span class="ux-img-name">5.234567.png</span></div>
+<div class="ux-img-card"><img src="images/ux-portfolio/项目三Trunk Plan/6.234567.png" alt="6.234567.png" loading="lazy"><span class="ux-img-name">6.234567.png</span></div></div>
+    </div>
+<div class="ux-project-group">
+      <h3 class="ux-project-title">Test Club</h3>
+      <div class="ux-img-grid"><div class="ux-img-card"><img src="images/ux-portfolio/项目四Test Club/reverse 1.png" alt="reverse 1.png" loading="lazy"><span class="ux-img-name">reverse 1.png</span></div>
+<div class="ux-img-card"><img src="images/ux-portfolio/项目四Test Club/reverse 2.png" alt="reverse 2.png" loading="lazy"><span class="ux-img-name">reverse 2.png</span></div>
+<div class="ux-img-card"><img src="images/ux-portfolio/项目四Test Club/reverse 3.png" alt="reverse 3.png" loading="lazy"><span class="ux-img-name">reverse 3.png</span></div>
+<div class="ux-img-card"><img src="images/ux-portfolio/项目四Test Club/reverse 4.png" alt="reverse 4.png" loading="lazy"><span class="ux-img-name">reverse 4.png</span></div>
+<div class="ux-img-card"><img src="images/ux-portfolio/项目四Test Club/reverse 5.png" alt="reverse 5.png" loading="lazy"><span class="ux-img-name">reverse 5.png</span></div>
+<div class="ux-img-card"><img src="images/ux-portfolio/项目四Test Club/reverse 6.png" alt="reverse 6.png" loading="lazy"><span class="ux-img-name">reverse 6.png</span></div>
+<div class="ux-img-card"><img src="images/ux-portfolio/项目四Test Club/reverse 7.png" alt="reverse 7.png" loading="lazy"><span class="ux-img-name">reverse 7.png</span></div></div>
     </div>
 
   </div>
