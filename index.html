@@ -443,9 +443,9 @@ a:hover { color: #60a5fa; }
 .modal-title { font-size: 48px; font-weight: 900; color: #fff; margin-bottom: 12px; letter-spacing: -1px; }
 .modal-subtitle { font-size: 18px; color: #b0b0b0; margin-bottom: 48px; line-height: 1.5; }
 .modal-body { display: grid; grid-template-columns: 1fr 420px; gap: 48px; align-items: start; margin-bottom: 48px; }
-.modal-info-row { border-top: 1px solid #222; padding: 20px 0; }
+.modal-info-row { border-top: 1px solid #222; padding: 12px 0; display: flex; align-items: baseline; gap: 24px; }
 .modal-info-row:last-child { border-bottom: 1px solid #222; }
-.modal-info-label { font-size: 13px; color: #888; margin-bottom: 8px; }
+.modal-info-label { font-size: 13px; color: #888; flex-shrink: 0; width: 110px; }
 .modal-info-text { font-size: 15px; color: #ccc; line-height: 1.7; }
 .modal-info-text a { color: var(--accent); margin-right: 20px; }
 .modal-tags { display: flex; flex-wrap: wrap; gap: 8px; }
@@ -464,7 +464,16 @@ a:hover { color: #60a5fa; }
 }
 .modal-poster-section { margin-top: 16px; }
 .modal-poster-section img { width: 100%; border-radius: 8px; border: 1px solid #222; }
-.modal-separator { width: 100%; height: 1px; background: #222; margin: 48px 0; }
+.modal-separator { width: 100%; height: 1px; background: #222; margin: 32px 0; }
+.ux-nav-btn { cursor: pointer; background: #161616; border: 1px solid #333; color: #ccc; padding: 6px 16px; border-radius: 4px; font-size: 12px; transition: var(--transition); }
+.ux-nav-btn:hover, .ux-nav-btn.active { background: #fff; color: #000; border-color: #fff; }
+.ux-project-group { margin-bottom: 40px; }
+.ux-project-title { font-size: 18px; font-weight: 600; color: #fff; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid #222; }
+.ux-img-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; }
+.ux-img-card { border-radius: 4px; overflow: hidden; border: 1px solid #222; transition: var(--transition); }
+.ux-img-card:hover { border-color: #555; transform: translateY(-2px); }
+.ux-img-card img { width: 100%; height: auto; display: block; }
+.ux-img-name { display: block; padding: 6px 10px; font-size: 11px; color: #666; background: #0a0a0a; }
 
 /* ============================================================
    ANIMATIONS
@@ -958,9 +967,18 @@ document.addEventListener('DOMContentLoaded', () => {
         <span class="modal-tag">产品/UX</span>
       </div>
     </div>
+    <div class="modal-info-row">
+      <div class="modal-info-label">选择子项目</div>
+      <div class="modal-tags">
+        <button class="modal-tag ux-nav-btn" onclick="scrollToUX(0)">1</button>
+        <button class="modal-tag ux-nav-btn" onclick="scrollToUX(1)">2</button>
+        <button class="modal-tag ux-nav-btn" onclick="scrollToUX(2)">3</button>
+        <button class="modal-tag ux-nav-btn" onclick="scrollToUX(3)">4</button>
+      </div>
+    </div>
     <div class="modal-separator"></div>
     <div class="ux-project-group">
-      <h3 class="ux-project-title">Resonance Moments</h3>
+      <h3 class="ux-project-title" id="ux-proj-1">Resonance Moments</h3>
       <div class="ux-img-grid"><div class="ux-img-card"><img src="images/ux-portfolio/项目一Resonance Moments/1.12.png" alt="1.12.png" loading="lazy"><span class="ux-img-name">1.12.png</span></div>
 <div class="ux-img-card"><img src="images/ux-portfolio/项目一Resonance Moments/2.2345.png" alt="2.2345.png" loading="lazy"><span class="ux-img-name">2.2345.png</span></div>
 <div class="ux-img-card"><img src="images/ux-portfolio/项目一Resonance Moments/3.2.png" alt="3.2.png" loading="lazy"><span class="ux-img-name">3.2.png</span></div>
@@ -970,7 +988,7 @@ document.addEventListener('DOMContentLoaded', () => {
 <div class="ux-img-card"><img src="images/ux-portfolio/项目一Resonance Moments/7.12.png" alt="7.12.png" loading="lazy"><span class="ux-img-name">7.12.png</span></div></div>
     </div>
 <div class="ux-project-group">
-      <h3 class="ux-project-title">Lantern Igniter</h3>
+      <h3 class="ux-project-title" id="ux-proj-2">Lantern Igniter</h3>
       <div class="ux-img-grid"><div class="ux-img-card"><img src="images/ux-portfolio/项目二Lantern Igniter/1.png" alt="1.png" loading="lazy"><span class="ux-img-name">1.png</span></div>
 <div class="ux-img-card"><img src="images/ux-portfolio/项目二Lantern Igniter/2.png" alt="2.png" loading="lazy"><span class="ux-img-name">2.png</span></div>
 <div class="ux-img-card"><img src="images/ux-portfolio/项目二Lantern Igniter/3.png" alt="3.png" loading="lazy"><span class="ux-img-name">3.png</span></div>
@@ -980,7 +998,7 @@ document.addEventListener('DOMContentLoaded', () => {
 <div class="ux-img-card"><img src="images/ux-portfolio/项目二Lantern Igniter/7.png" alt="7.png" loading="lazy"><span class="ux-img-name">7.png</span></div></div>
     </div>
 <div class="ux-project-group">
-      <h3 class="ux-project-title">Trunk Plan</h3>
+      <h3 class="ux-project-title" id="ux-proj-3">Trunk Plan</h3>
       <div class="ux-img-grid"><div class="ux-img-card"><img src="images/ux-portfolio/项目三Trunk Plan/1.45.png" alt="1.45.png" loading="lazy"><span class="ux-img-name">1.45.png</span></div>
 <div class="ux-img-card"><img src="images/ux-portfolio/项目三Trunk Plan/2.345.png" alt="2.345.png" loading="lazy"><span class="ux-img-name">2.345.png</span></div>
 <div class="ux-img-card"><img src="images/ux-portfolio/项目三Trunk Plan/3.23.png" alt="3.23.png" loading="lazy"><span class="ux-img-name">3.23.png</span></div>
@@ -990,7 +1008,7 @@ document.addEventListener('DOMContentLoaded', () => {
 <div class="ux-img-card"><img src="images/ux-portfolio/项目三Trunk Plan/6.234567.png" alt="6.234567.png" loading="lazy"><span class="ux-img-name">6.234567.png</span></div></div>
     </div>
 <div class="ux-project-group">
-      <h3 class="ux-project-title">Test Club</h3>
+      <h3 class="ux-project-title" id="ux-proj-4">Test Club</h3>
       <div class="ux-img-grid"><div class="ux-img-card"><img src="images/ux-portfolio/项目四Test Club/reverse 1.png" alt="reverse 1.png" loading="lazy"><span class="ux-img-name">reverse 1.png</span></div>
 <div class="ux-img-card"><img src="images/ux-portfolio/项目四Test Club/reverse 2.png" alt="reverse 2.png" loading="lazy"><span class="ux-img-name">reverse 2.png</span></div>
 <div class="ux-img-card"><img src="images/ux-portfolio/项目四Test Club/reverse 3.png" alt="reverse 3.png" loading="lazy"><span class="ux-img-name">reverse 3.png</span></div>
@@ -1002,6 +1020,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
   </div>
 </div>
+
+
+<script>
+function scrollToUX(n) {
+  var el = document.getElementById('ux-proj-' + (n+1));
+  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  var btns = document.querySelectorAll('.ux-nav-btn');
+  for (var i = 0; i < btns.length; i++) {
+    btns[i].classList.toggle('active', i === n);
+  }
+}
+</script>
 
 </body>
 </html>
