@@ -1196,4 +1196,7 @@ document.addEventListener('DOMContentLoaded', () => {
     </div>
     <div class="modal-separator"></div>
 
+<script>
+function switchUXImg(t,s){var g=t.closest(".ux-gallery");g.querySelector(".ux-gallery-main img").src=s;g.querySelectorAll(".ux-gallery-thumb").forEach(function(x){x.classList.remove("active")});t.classList.add("active")}
+</script>
 
