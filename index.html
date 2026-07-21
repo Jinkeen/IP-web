@@ -469,6 +469,8 @@ a:hover { color: #60a5fa; }
 .ux-nav-btn:hover, .ux-nav-btn.active { background: #fff; color: #000; border-color: #fff; }
 .ux-project-group { margin-bottom: 40px; }
 .ux-project-title { font-size: 18px; font-weight: 600; color: #fff; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid #222; }
+.ux-project-detail-title { font-size: 48px; font-weight: 900; color: #fff; line-height: 1.1; }
+.ux-project-detail-sub { font-size: 16px; color: #aaa; margin-top: 8px; }
 .ux-img-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; }
 .ux-img-card { border-radius: 4px; overflow: hidden; border: 1px solid #222; transition: var(--transition); }
 .ux-img-card:hover { border-color: #555; transform: translateY(-2px); }
@@ -970,7 +972,7 @@ document.addEventListener('DOMContentLoaded', () => {
     <div class="modal-info-row">
       <div class="modal-info-label">选择子项目</div>
       <div class="modal-tags">
-        <button class="modal-tag ux-nav-btn" onclick="scrollToUX(0)">1</button>
+        <button class="modal-tag ux-nav-btn" onclick="scrollToUX(0)">社会干预游戏</button>
         <button class="modal-tag ux-nav-btn" onclick="scrollToUX(1)">2</button>
         <button class="modal-tag ux-nav-btn" onclick="scrollToUX(2)">3</button>
         <button class="modal-tag ux-nav-btn" onclick="scrollToUX(3)">4</button>
@@ -978,7 +980,16 @@ document.addEventListener('DOMContentLoaded', () => {
     </div>
     <div class="modal-separator"></div>
     <div class="ux-project-group">
-      <h3 class="ux-project-title" id="ux-proj-1">Resonance Moments</h3>
+      <h3 class="ux-project-title" id="ux-proj-1" style="font-size:14px;color:#888;margin-bottom:4px;border:none;padding:0;">01</h3>
+      <div class="ux-project-detail-title">社会干预游戏</div>
+      <div class="ux-project-detail-sub">游戏化共情体验、公益设计与用户研究</div>
+      <div class="modal-tags" style="margin:12px 0 20px;">
+        <span class="modal-tag">游戏化设计</span>
+        <span class="modal-tag">用户体验</span>
+        <span class="modal-tag">社会创新</span>
+      </div>
+      <div style="font-size:13px;color:#999;margin-bottom:8px;"><span style="color:#3b82f6;">|</span> 01 / 概述</div>
+      <p style="font-size:15px;color:#ccc;line-height:1.9;margin-bottom:32px;">Resonance Moments 是一款面向公众的 ADHD 公益认知体验游戏，旨在通过角色扮演帮助用户理解 ADHD 患者在注意力、执行功能与情绪调节等方面的真实挑战，提升社会共情与公众认知。项目以游戏化叙事为核心，将 ADHD 的典型症状转化为可交互的关卡机制，并结合三轮用户测试持续优化游戏体验。最终验证了该设计能够有效提升玩家对 ADHD 的理解与共情能力，同时探索了医院、地铁等公共场景下的公益传播可能性。</p>
       <div class="ux-img-grid"><div class="ux-img-card"><img src="images/ux-portfolio/项目一Resonance Moments/1.12.png" alt="1.12.png" loading="lazy"><span class="ux-img-name">1.12.png</span></div>
 <div class="ux-img-card"><img src="images/ux-portfolio/项目一Resonance Moments/2.2345.png" alt="2.2345.png" loading="lazy"><span class="ux-img-name">2.2345.png</span></div>
 <div class="ux-img-card"><img src="images/ux-portfolio/项目一Resonance Moments/3.2.png" alt="3.2.png" loading="lazy"><span class="ux-img-name">3.2.png</span></div>
