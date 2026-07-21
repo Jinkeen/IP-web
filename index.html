@@ -1199,4 +1199,7 @@ document.addEventListener('DOMContentLoaded', () => {
 <script>
 function switchUXImg(t,s){var g=t.closest(".ux-gallery");g.querySelector(".ux-gallery-main img").src=s;g.querySelectorAll(".ux-gallery-thumb").forEach(function(x){x.classList.remove("active")});t.classList.add("active")}
 </script>
+<script>
+function scrollToUX(n){var e=document.getElementById("ux-proj-"+(n+1));if(e)e.scrollIntoView({behavior:"smooth",block:"start"});document.querySelectorAll(".ux-nav-btn").forEach(function(b,i){b.classList.toggle("active",i===n)})}
+</script>
 
