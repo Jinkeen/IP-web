@@ -300,7 +300,7 @@ a:hover { color: #60a5fa; }
 }
 .research-header .research-desc {
   font-size: 13px; color: var(--text-tertiary); line-height: 1.6;
-  text-align: right; max-width: 360px;
+  text-align: right; max-width: 520px;
 }
 .research-card {
   background: #0a0a0a;
@@ -722,16 +722,156 @@ a:hover { color: #60a5fa; }
 <section class="section" id="research">
   <div class="research-header">
     <h2 style="font-size:22px;font-weight:700;">部分研究</h2>
-    <p class="research-desc">围绕语音韵律可视化、多模态学习与游戏化语言学习展开研究，探索视觉反馈在英语发音训练中的应用，并发表于 Greater Bay Area Pre-CHI 2026</p>
+    <p class="research-desc">围绕语音韵律可视化、多模态学习与游戏化语言学习展开研究<br>探索视觉反馈在英语发音训练中的应用<br>并发表于 Greater Bay Area Pre-CHI 2026</p>
+  </div>
+  <a href="WANG_Jingyi_Final_Report.pdf" target="_blank" class="research-card fade-in" style="color:inherit;text-decoration:none;">
+    <div class="research-info">
+      <div class="research-label">01 / 论文</div>
+      <div class="research-title">基于 CTML 理论的多模态语音学习反馈系统研究 — 提取语音中 pitch 与 intensity 声学特征，设计并实现 3 种多模态可视化反馈方案</div>
+      <span class="research-link">查看论文 PDF <span class="arrow">→</span></span>
+    </div>
+  </a</div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ============================================================
+     EDUCATION
+     ============================================================ -->
+<section class="section edu-section" id="education">
+  <div class="section-grid">
+    <div class="section-label">
+      <h2>教育经历<br>与奖项</h2>
+    </div>
+    <div class="section-content" style="position:relative;">
+      <!-- Watermark -->
+      <div class="edu-watermark">CityU · HCI</div>
+
+      <!-- School 1 -->
+      <div class="edu-item fade-in">
+        <div class="edu-time">2025.9 – 至今<br><span style="font-size:11px;color:#555;">预计 2027.6 毕业</span></div>
+        <div class="edu-details">
+        <div class="edu-school">香港城市大学</div>
+        <div class="edu-degree">艺术学硕士（人机交互） · QS 62</div>
+        <div class="edu-detail-title">主要课程</div>
+        <div class="edu-courses">人工智能物联网 · 人机交互 · 机器学习：算法与应用 · 虚拟现实技术与应用 · 信息可视化</div>
+      </div>
+      </div>
+
+      <!-- School 2 -->
+      <div class="edu-item fade-in">
+        <div class="edu-time">2021.9 – 2025.6</div>
+        <div class="edu-details">
+        <div class="edu-school">武汉工程大学</div>
+        <div class="edu-degree">工学学士（数字媒体技术）</div>
+        <div class="edu-detail-title">主要课程</div>
+        <div class="edu-courses">高级程序设计 A (94) · 线性代数 (92) · 数字逻辑 (97) · 软件工程 (93) · 计算机图形学 (95) · 数字图像处理</div>
+        <div class="edu-gpa">GPA 3.76 / 5.0 — Top 2%</div>
+        <div class="edu-detail-title">荣誉与奖项</div>
+        <ul class="edu-awards">
+          <li>蓝桥杯全国二等奖</li>
+          <li>计算机设计大赛中南地区赛三等奖</li>
+          <li>一等奖学金 (2024-2025) · 二等奖学金 (2023-2024)</li>
+        </ul>
+      </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ============================================================
+     PROJECT PORTFOLIO
+     ============================================================ -->
+<section class="section" id="projects">
+  <div class="project-header">
+    <h2 class="project-title">项目作品集</h2>
+    <div class="filter-tabs">
+      <button class="filter-tab active" data-filter="all">全部 <span class="count">(03)</span></button>
+      <button class="filter-tab" data-filter="ai">AI 产品 <span class="count">(01)</span></button>
+      <button class="filter-tab" data-filter="hci">HCI 研究 <span class="count">(01)</span></button>
+      <button class="filter-tab" data-filter="dev">开发 <span class="count">(01)</span></button>
+    </div>
+  </div>
+
+  <div class="project-grid">
+
+    <!-- Project 1: 语音韵律可视化研究 -->
+    <div class="project-card fade-in" data-category="hci">
+      <div class="project-cover">
+        <img src="语言学习研究效果图.png" alt="基于语音韵律可视化的英语发音学习支持研究" onerror="this.style.display='none';this.parentElement.innerHTML='<div class=project-cover-placeholder>语音韵律可视化研究<br>封面图 · 语音学习研究</div>'">
+        <div class="project-arrow">↗</div>
+      </div>
+      <div class="project-body">
+        <div class="project-name">基于语音韵律可视化的英语发音学习支持研究</div>
+        <div class="project-subtitle">AI语音分析 | 多模态学习 | HCI研究</div>
+        <div class="project-tags">
+          <span class="project-tag">语音韵律可视化</span>
+          <span class="project-tag">CTML</span>
+          <span class="project-tag">英语发音学习</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 2: 共鸣时刻 -->
+    <div class="project-card fade-in" data-category="dev">
+      <div class="project-cover">
+        <!-- ★ 替换: 共鸣时刻 - 封面图，建议展示2D游戏画面或手势识别演示 ★ -->
+        <img src="images/project-02-共鸣时刻-手势识别2D游戏封面.jpg" alt="共鸣时刻" onerror="this.style.display='none';this.parentElement.innerHTML='<div class=project-cover-placeholder>共鸣时刻<br>封面图 · 2D游戏/手势识别</div>'">
+        <div class="project-arrow">↗</div>
+      </div>
+      <div class="project-body">
+        <div class="project-name">共鸣时刻</div>
+        <div class="project-subtitle">基于手势识别的 2D 冒险游戏 · 校级科研项目</div>
+        <div class="project-tags">
+          <span class="project-tag">图像识别</span>
+          <span class="project-tag">OpenCV</span>
+          <span class="project-tag">CNN</span>
+          <span class="project-tag">Unity</span>
+          <span class="project-tag">手势交互</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 3: LanmaoAssist -->
+    <div class="project-card fade-in" data-category="ai">
+      <div class="project-cover">
+        <!-- ★ 替换: LanmaoAssist - 封面图，建议展示房源管理后台界面 ★ -->
+        <img src="images/project-03-LanmaoAssist-房源管理系统封面.jpg" alt="LanmaoAssist" onerror="this.style.display='none';this.parentElement.innerHTML='<div class=project-cover-placeholder>LanmaoAssist<br>封面图 · 房源管理后台</div>'">
+        <div class="project-arrow">↗</div>
+      </div>
+      <div class="project-body">
+        <div class="project-name">LanmaoAssist</div>
+        <div class="project-subtitle">房东端房源管理系统 · 全栈项目</div>
+        <div class="project-tags">
+          <span class="project-tag">JavaScript</span>
+          <span class="project-tag">房源管理</span>
+          <span class="project-tag">全栈开发</span>
+          <span class="project-tag">产品设计</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ============================================================
+     RESEARCH
+     ============================================================ -->
+<section class="section" id="research">
+  <div class="research-header">
+    <h2 style="font-size:22px;font-weight:700;">部分研究</h2>
+    <p class="research-desc">围绕语音韵律可视化、多模态学习与游戏化语言学习展开研究<br>探索视觉反馈在英语发音训练中的应用<br>并发表于 Greater Bay Area Pre-CHI 2026</p>
   </div>
   <div class="research-card fade-in">
     <div class="research-info">
       <div class="research-label">01 / 论文</div>
       <div class="research-title">基于 CTML 理论的多模态语音学习反馈系统研究 — 提取语音中 pitch 与 intensity 声学特征，设计并实现 3 种多模态可视化反馈方案</div>
       <a href="WANG_Jingyi_Final_Report.pdf" target="_blank" class="research-link">查看论文 PDF <span class="arrow">→</span></a>
-    </div>
-    <div class="research-cover">
-      <img src="语言学习研究效果图.png" alt="语言学习研究效果图">
     </div>
   </div>
 </section>
