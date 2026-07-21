@@ -459,10 +459,8 @@ a:hover { color: #60a5fa; }
 .modal-bullet-list {
   margin: 0 0 16px 0; padding-left: 20px;
   border-left: 1px solid var(--border);
-  display: flex; flex-direction: column; gap: 14px;
-}
-.modal-bullet-list .work-bullet-item {
-  font-size: 14px; color: #b0b0b0; line-height: 1.9;
+  display: flex; flex-direction: column; gap: 10px;
+  font-size: 13px; color: var(--text-secondary); line-height: 1.8;
 }
 .modal-poster-section { margin-top: 16px; }
 .modal-poster-section img { width: 100%; border-radius: 8px; border: 1px solid #222; }
@@ -557,11 +555,11 @@ a:hover { color: #60a5fa; }
           <div class="work-role">AI 产品经理 · 深圳</div>
 
           <div class="work-project">
-            <div class="work-project-time">LLM · Prompt · RAG</div>
+            <div class="work-project-time">全生命周期设计 · 需求分析 · UX · 模型选型 · 效果评估</div>
             <div class="work-project-desc">
-              <span class="work-bullet-item">主导 LLM 驱动的 AI 绘本产品从 0→1 设计与交付，面向小学低年级课堂场景，完成需求拆解、多轮 Prompt 调优与交互流程设计</span>
-              <span class="work-bullet-item">将开放式语音输入重构为结构化问答系统，使后端大语言模型调用 token 数减少 40%，文生图 API 延迟从平均 8 秒降至 3 秒以内</span>
-              <span class="work-bullet-item">基于 1–6 年级语文教材构建 Agent 领域知识库，通过语义对齐与内容约束机制保障绘本生成质量</span>
+              <span class="work-bullet-item">需求分析：面向小学低年级课堂绘本创作场景，发现开放式创作存在两类核心问题：一是文生图角色一致性较差、图片生成耗时较长，难以满足课堂实时使用；二是在课堂试点中发现，部分低龄学生缺乏组织故事内容能力</span>
+              <span class="work-bullet-item">模型选型与优化：将开放式创作重构为"角色设定→场景选择→情节引导→故事生成"的结构化工作流，通过角色约束与Prompt规则优化，兼顾课堂生成效率与内容稳定性</span>
+              <span class="work-bullet-item">效果评估：大语言模型Token调用降低40%，文生图平均生成时间由8s优化至3s，完成AI绘本课堂试点与系统数据埋点，为后续课堂应用提供产品验证</span>
             </div>
           </div>
           </div>
@@ -612,6 +610,11 @@ a:hover { color: #60a5fa; }
         <div class="edu-degree">艺术学硕士（人机交互） · QS 62</div>
         <div class="edu-detail-title">主要课程</div>
         <div class="edu-courses">人工智能物联网 · 人机交互 · 机器学习：算法与应用 · 虚拟现实技术与应用 · 信息可视化</div>
+        <div class="edu-detail-title">荣誉与奖项</div>
+        <div class="modal-bullet-list" style="margin-top:12px;">
+          <div class="work-bullet-item">HK TECH300 入围 — 项目 [Pictale] 获得 HK00,000 Seed Fund</div>
+          <div class="work-bullet-item">学术海报 A Study on Multisensory English Pronunciation Learning Support Based on Speech Prosody Visualization 发表于 Greater Bay Area Pre-CHI 2026</div>
+        </div>
       </div>
       </div>
 
@@ -625,11 +628,11 @@ a:hover { color: #60a5fa; }
         <div class="edu-courses">高级程序设计 A (94) · 线性代数 (92) · 数字逻辑 (97) · 软件工程 (93) · 计算机图形学 (95) · 数字图像处理</div>
         <div class="edu-gpa">GPA 3.76 / 5.0 — Top 2%</div>
         <div class="edu-detail-title">荣誉与奖项</div>
-        <ul class="edu-awards">
-          <li>蓝桥杯全国二等奖</li>
-          <li>计算机设计大赛中南地区赛三等奖</li>
-          <li>一等奖学金 (2024-2025) · 二等奖学金 (2023-2024)</li>
-        </ul>
+        <div class="modal-bullet-list" style="margin-top:12px;">
+          <div class="work-bullet-item">第十四届蓝桥杯大赛专项赛暨首届"元境杯"全国二等奖</div>
+          <div class="work-bullet-item">中国大学生计算机设计大赛中南地区赛三等奖</div>
+          <div class="work-bullet-item">二等学业奖学金 (2023-2024) · 一等学业奖学金 (2024-2025)</div>
+        </div>
       </div>
       </div>
 
@@ -755,6 +758,11 @@ a:hover { color: #60a5fa; }
         <div class="edu-degree">艺术学硕士（人机交互） · QS 62</div>
         <div class="edu-detail-title">主要课程</div>
         <div class="edu-courses">人工智能物联网 · 人机交互 · 机器学习：算法与应用 · 虚拟现实技术与应用 · 信息可视化</div>
+        <div class="edu-detail-title">荣誉与奖项</div>
+        <div class="modal-bullet-list" style="margin-top:12px;">
+          <div class="work-bullet-item">HK TECH300 入围 — 项目 [Pictale] 获得 HK00,000 Seed Fund</div>
+          <div class="work-bullet-item">学术海报 A Study on Multisensory English Pronunciation Learning Support Based on Speech Prosody Visualization 发表于 Greater Bay Area Pre-CHI 2026</div>
+        </div>
       </div>
       </div>
 
@@ -768,11 +776,11 @@ a:hover { color: #60a5fa; }
         <div class="edu-courses">高级程序设计 A (94) · 线性代数 (92) · 数字逻辑 (97) · 软件工程 (93) · 计算机图形学 (95) · 数字图像处理</div>
         <div class="edu-gpa">GPA 3.76 / 5.0 — Top 2%</div>
         <div class="edu-detail-title">荣誉与奖项</div>
-        <ul class="edu-awards">
-          <li>蓝桥杯全国二等奖</li>
-          <li>计算机设计大赛中南地区赛三等奖</li>
-          <li>一等奖学金 (2024-2025) · 二等奖学金 (2023-2024)</li>
-        </ul>
+        <div class="modal-bullet-list" style="margin-top:12px;">
+          <div class="work-bullet-item">第十四届蓝桥杯大赛专项赛暨首届"元境杯"全国二等奖</div>
+          <div class="work-bullet-item">中国大学生计算机设计大赛中南地区赛三等奖</div>
+          <div class="work-bullet-item">二等学业奖学金 (2023-2024) · 一等学业奖学金 (2024-2025)</div>
+        </div>
       </div>
       </div>
 
