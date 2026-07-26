@@ -708,17 +708,1269 @@ a:hover { color: #60a5fa; }
     <!-- Project 3: LanmaoAssist -->
     <div class="project-card fade-in" data-category="ai" onclick="document.getElementById('project-modal').classList.add('active')" style="cursor:pointer;">
       <div class="project-cover">
-        <!-- ★ 替换: LanmaoAssist - 封面图，建议展示房源管理后台界面 ★ -->
         <img src="images/project-03-LanmaoAssist-房源管理系统封面.jpg" alt="LanmaoAssist" onerror="this.style.display='none';this.parentElement.innerHTML='<div class=project-cover-placeholder>LanmaoAssist<br>封面图 · 房源管理后台</div>'">
         <div class="project-arrow">↗</div>
       </div>
       <div class="project-body">
-        <div class="project-name">LanmaoAssist</div>
-        <div class="project-subtitle">房东端房源管理系统 · 全栈项目</div>
+        <div class="project-name">租赁业务数字化与房东经营管理优化</div>
+        <div class="project-subtitle">Claude | 全栈开发 | SaaS产品 | OCR识别</div>
         <div class="project-tags">
-          <span class="project-tag">JavaScript</span>
-          <span class="project-tag">房源管理</span>
+          <span class="project-tag">Claude</span>
           <span class="project-tag">全栈开发</span>
+          <span class="project-tag">SaaS产品</span>
+          <span class="project-tag">OCR识别</span>
+          <span class="project-tag">产品设计</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ============================================================
+     RESEARCH
+     ============================================================ -->
+<section class="section" id="research">
+  <div class="research-header">
+    <h2 style="font-size:22px;font-weight:700;">部分研究</h2>
+    <p class="research-desc">围绕语音韵律可视化、多模态学习与游戏化语言学习展开研究<br>探索视觉反馈在英语发音训练中的应用<br>并发表于 Greater Bay Area Pre-CHI 2026</p>
+  </div>
+  <a href="WANG_Jingyi_Final_Report.pdf" target="_blank" class="research-card fade-in" style="color:inherit;text-decoration:none;">
+    <div class="research-info">
+      <div class="research-label">01 / 论文</div>
+      <div class="research-title">基于 CTML 理论的多模态语音学习反馈系统研究 — 提取语音中 pitch 与 intensity 声学特征，设计并实现 3 种多模态可视化反馈方案</div>
+      <span class="research-link">查看论文 PDF <span class="arrow">→</span></span>
+    </div>
+  </a>
+</section>
+
+<!-- ============================================================
+     GITHUB / OPEN SOURCE
+     ============================================================ -->
+<section class="section" id="github">
+  <div class="github-header">
+    <h2>个人 AI 产品 / GitHub</h2>
+    <a href="https://github.com/Jinkeen" target="_blank" class="github-link">查看 GITHUB 主页 →</a>
+  </div>
+
+  <div class="github-grid">
+
+    <!-- GH 1: LanmaoAssist -->
+    <a href="https://github.com/Jinkeen/LanmaoAssist" target="_blank" class="github-card fade-in" style="color:inherit;text-decoration:none;">
+      <span class="visibility-tag">Public</span>
+      <div class="github-card-name">LanmaoAssist</div>
+      <div class="github-card-desc">房东端房源管理系统 — 面向租房场景的房源信息管理与租客交互工具。</div>
+      <div class="github-card-meta">
+        <span><span class="github-lang-dot"></span> JavaScript</span>
+        <span>★ 2</span>
+      </div>
+    </a>
+
+    <!-- GH 2: IP-web -->
+    <a href="https://github.com/Jinkeen/IP-web" target="_blank" class="github-card fade-in" style="color:inherit;text-decoration:none;">
+      <span class="visibility-tag">Public</span>
+      <div class="github-card-name">IP-web</div>
+      <div class="github-card-desc">个人作品集网站 — 极简科技风单页简历，纯 HTML/CSS/JS 构建。</div>
+      <div class="github-card-meta">
+        <span><span class="github-lang-dot" style="background:#e34c26;"></span> HTML</span>
+        <span>★ 0</span>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ============================================================
+     CONTACT
+     ============================================================ -->
+<section class="contact-section" id="contact">
+  <div class="contact-block">
+    <p class="contact-label-title">联系方式</p>
+    <div class="contact-row">
+      <span class="contact-key">EMAIL</span>
+      <a href="mailto:wjingyi598@gmail.com" class="contact-val">wjingyi598@gmail.com</a>
+    </div>
+    <div class="contact-row" style="margin-top:24px;">
+      <span class="contact-key">微信</span>
+      <span class="contact-val">_Sylvia_0816</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="footer">
+  <span>© 2026 王静怡 Sylvia Wang</span>
+  <div class="lang-switch">
+    <button class="lang-btn" onclick="switchLang('en')">EN</button>
+    <button class="lang-btn active" onclick="switchLang('zh')">中文</button>
+  </div>
+</footer>
+
+<script>
+// ============================================================
+// Scroll-triggered fade-in animations
+// ============================================================
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// ============================================================
+// Filter tabs for project portfolio
+// ============================================================
+document.querySelectorAll('.filter-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+
+    const filter = tab.dataset.filter;
+    document.querySelectorAll('.project-card').forEach(card => {
+      if (filter === 'all' || card.dataset.category === filter) {
+        card.style.display = '';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  });
+});
+
+// ============================================================
+// Language switch
+// ============================================================
+function switchLang(lang) {
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+  document.querySelector(`.lang-btn[onclick="switchLang('${lang}')"]`).classList.add('active');
+  // Placeholder for future i18n support
+}
+
+// ============================================================
+// Active nav link highlight on scroll
+// ============================================================
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(section => {
+    const top = section.offsetTop - 100;
+    if (window.scrollY >= top) current = section.getAttribute('id');
+  });
+  navLinks.forEach(link => {
+    link.style.color = link.getAttribute('href') === `#${current}` ? '#fff' : '';
+  });
+});
+// ============================================================
+// Project Modal (runs after DOM is ready)
+// ============================================================
+document.addEventListener('DOMContentLoaded', () => {
+  // Close handlers for all modals
+  document.querySelectorAll('.modal-overlay').forEach(function(m) {
+    var btn = m.querySelector('button');
+    if (btn) btn.addEventListener('click', function() { m.classList.remove('active'); });
+    m.addEventListener('click', function(e) { if (e.target === m) m.classList.remove('active'); });
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') document.querySelectorAll('.modal-overlay').forEach(function(m) { m.classList.remove('active'); });
+  });
+});
+</script>
+
+<!-- ============================================================
+     PROJECT MODAL
+     ============================================================ -->
+<div class="modal-overlay" id="project-modal">
+  <button class="modal-close" id="modal-close">×</button>
+  <div class="modal-container">
+
+    <!-- Header -->
+    <div id="modal-content-research">
+    <div class="modal-label">学术研究项目</div>
+    <div class="modal-title">Speech Prosody Visualization<br><span style="font-size:0.5em;font-weight:500;">基于语音韵律可视化的英语发音学习支持研究</span></div>
+    <div class="modal-subtitle">Multisensory Support for English Pronunciation Learning</div>
+
+    <!-- Left: Overview + Info / Right: Preview -->
+    <div class="modal-body">
+      <div>
+        <p class="modal-overview-text"><strong>项目概述</strong></p>
+        <p class="modal-overview-text">智能眼镜语言学习系统是一项面向非母语英语学习者的多模态学习研究，旨在解决传统语音训练过度依赖听觉反馈、难以理解句子级语调与重音变化的问题。项目以语音韵律（Speech Prosody）为核心，将 Pitch 与 Intensity 等语音特征转化为可视化反馈，帮助学习者更直观地感知发音节奏与语调变化，并探索视觉反馈在英语发音学习中的辅助价值。相关成果发表于 Greater Bay Area Pre-CHI 2026 海报与论文。</p>
+        <div class="modal-bullet-list">
+	          <div class="work-bullet-item">基于 CTML（认知多媒体学习理论）设计多模态语音学习框架，构建从语音分析、数据处理到视觉映射的完整流程，实现语音韵律的实时可视化反馈。</div>
+	          <div class="work-bullet-item">围绕文字大小、颜色、垂直位置等视觉变量设计多组可视化方案，通过用户偏好实验筛选最优视觉编码，并形成融合式反馈方案。</div>
+	          <div class="work-bullet-item">采用 5 分 Likert 量表对可读性、理解度及学习辅助效果进行评估，验证该方法能够帮助学习者更直观地理解语音韵律，为后续游戏化语言学习提供设计基础。</div>
+	        </div>
+
+        <div class="modal-info-row">
+          <div class="modal-info-label">项目产出</div>
+          <div class="modal-info-text">学术论文、会议海报、用户研究、多模态可视化设计</div>
+        </div>
+        <div class="modal-info-row">
+          <div class="modal-info-label">页数</div>
+          <div class="modal-info-text">
+            <a href="WANG_Jingyi_Final_Poster.pdf" target="_blank">学术海报（Poster）</a>
+            <a href="WANG_Jingyi_Final_Report.pdf" target="_blank">论文（Paper）</a>
+          </div>
+        </div>
+        <div class="modal-info-row">
+          <div class="modal-info-label">项目标签</div>
+          <div class="modal-tags">
+            <span class="modal-tag">学术研究</span>
+            <span class="modal-tag">HCI</span>
+            <span class="modal-tag">信息可视化</span>
+            <span class="modal-tag">多模态学习</span>
+            <span class="modal-tag">Speech Prosody</span>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <img src="images/poster-detail.jpg" alt="研究海报" class="modal-preview-img">
+      </div>
+    </div>
+
+    </div>
+
+    <!-- Lanmao Content -->
+    <div id="modal-content-lanmao" style="display:none;">
+
+    <!-- Header -->
+    <div class="modal-label">全栈产品开发</div>
+    <div class="modal-title">租赁业务数字化与房东经营管理优化</div>
+    <div class="modal-subtitle">Claude | 全栈开发 | SaaS产品 | OCR识别</div>
+
+    <p class="modal-overview-text"><strong>项目概述</strong></p>
+    <p class="modal-overview-text">LanMao 是一款面向长租房房东的一体化经营管理小程序，旨在解决房源、租金、水电及电子锁等信息分散管理的问题。项目基于真实房东业务调研，重新梳理租赁管理流程，并围绕微信小程序构建房源管理、OCR录单及经营数据分析等核心能力。整个项目采用 AI 辅助开发模式，完成从产品设计、数据库建模到前后端实现与部署的全流程开发，并通过真实用户持续迭代，验证了产品在长租房经营场景中的实际应用价值。</p>
+
+    <div style="margin-top:20px;">
+      <p class="modal-overview-text"><strong>商业化验证</strong></p>
+      <p class="modal-overview-text">采用 MVP（Minimum Viable Product）策略完成市场验证，通过小红书虚拟商品完成产品冷启动，实现 100% 付费转化率（15/15），ARPPU ¥5.48，累计管理 76 套长租房源。依托免费 AI API 配额完成产品运营，初步验证了产品的商业可行性、持续使用意愿及真实业务场景价值。</p>
+    </div>
+
+    <div class="modal-info-row">
+      <div class="modal-info-label">项目产出</div>
+      <div class="modal-info-text">微信小程序、OCR录单系统、经营数据看板、SaaS产品</div>
+    </div>
+    <div class="modal-info-row">
+      <div class="modal-info-label">项目标签</div>
+      <div class="modal-tags">
+        <span class="modal-tag">Claude</span>
+        <span class="modal-tag">全栈开发</span>
+        <span class="modal-tag">SaaS产品</span>
+        <span class="modal-tag">OCR识别</span>
+        <span class="modal-tag">产品设计</span>
+      </div>
+    </div>
+
+    </div>
+
+    <!-- Poster Full Display -->
+    <div class="modal-separator"></div>
+    <div class="modal-poster-section fade-in">
+      <img src="images/poster-detail.jpg" alt="学术海报完整展示">
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ============================================================
+     UX PORTFOLIO MODAL
+     ============================================================ -->
+<div class="modal-overlay" id="ux-modal">
+  <button class="modal-close ux-close">&times;</button>
+  <div class="modal-container">
+    <div class="modal-label">Interactive Design · Individual Project</div>
+    <div class="modal-title" style="font-size:56px;line-height:1.05;">发散型交互体验设计</div>
+    <div class="modal-subtitle" style="margin-bottom:32px;">Preview &nbsp; 2024.8 &ndash; 2025.5</div>
+    <div class="modal-info-row">
+      <div class="modal-info-label">项目产出</div>
+      <div class="modal-info-text">UI · XR · 游戏化设计 · 可穿戴运动装置</div>
+    </div>
+    <div class="modal-info-row">
+      <div class="modal-info-label">页数（及图片数）</div>
+      <div class="modal-info-text">28 张视觉案例整合展示</div>
+    </div>
+    <div class="ux-sub-nav">
+      <span style="font-size:12px;color:#888;">选择子项目</span>
+      <button class="modal-tag ux-nav-btn" onclick="scrollToUX(0)">社会干预游戏</button>
+      <button class="modal-tag ux-nav-btn" onclick="scrollToUX(1)">体感交互</button>
+      <button class="modal-tag ux-nav-btn" onclick="scrollToUX(2)">商业创新</button>
+      <button class="modal-tag ux-nav-btn" onclick="scrollToUX(3)">智能陪伴</button>
+    </div>
+    <div class="modal-separator"></div>
+    <div class="ux-project-group">
+      <h3 class="ux-project-title" id="ux-proj-1" style="font-size:14px;color:#888;margin-bottom:4px;border:none;padding:0;">01</h3>
+      <div class="ux-project-detail-title">ADHD公益认知干预游戏</div>
+      <div class="ux-project-detail-sub">游戏化共情体验、公益设计与用户研究</div>
+      <div class="modal-tags" style="margin:12px 0 20px;">
+        <span class="modal-tag">游戏化设计</span>
+        <span class="modal-tag">用户体验</span>
+        <span class="modal-tag">社会创新</span>
+      </div>
+      <div style="font-size:13px;color:#999;margin-bottom:8px;"><span style="color:#3b82f6;">|</span> 01 / 概述</div>
+      <p style="font-size:15px;color:#ccc;line-height:1.9;margin-bottom:32px;">Resonance Moments 是一款面向公众的 ADHD 公益认知体验游戏，旨在通过角色扮演帮助用户理解 ADHD 患者在注意力、执行功能与情绪调节等方面的真实挑战，提升社会共情与公众认知。项目以游戏化叙事为核心，将 ADHD 的典型症状转化为可交互的关卡机制，并结合三轮用户测试持续优化游戏体验。最终验证了该设计能够有效提升玩家对 ADHD 的理解与共情能力，同时探索了医院、地铁等公共场景下的公益传播可能性。</p>
+      <div class="ux-gallery">
+      <div class="ux-gallery-main">
+        <img src="images/ux-portfolio/项目一Resonance Moments/1.12.png" alt="1.12.png">
+      </div>
+      <div class="ux-gallery-thumbs">
+        <img class="ux-gallery-thumb active" src="images/ux-portfolio/项目一Resonance Moments/1.12.png" onmouseenter="switchUXImg(this,'images/ux-portfolio/项目一Resonance Moments/1.12.png')" loading="lazy">
+<img class="ux-gallery-thumb" src="images/ux-portfolio/项目一Resonance Moments/2.2345.png" onmouseenter="switchUXImg(this,'images/ux-portfolio/项目一Resonance Moments/2.2345.png')" loading="lazy">
+<img class="ux-gallery-thumb" src="images/ux-portfolio/项目一Resonance Moments/3.2.png" onmouseenter="switchUXImg(this,'images/ux-portfolio/项目一Resonance Moments/3.2.png')" loading="lazy">
+<img class="ux-gallery-thumb" src="images/ux-portfolio/项目一Resonance Moments/4.123 oknow.png" onmouseenter="switchUXImg(this,'images/ux-portfolio/项目一Resonance Moments/4.123 oknow.png')" loading="lazy">
+<img class="ux-gallery-thumb" src="images/ux-portfolio/项目一Resonance Moments/5.1.png" onmouseenter="switchUXImg(this,'images/ux-portfolio/项目一Resonance Moments/5.1.png')" loading="lazy">
+<img class="ux-gallery-thumb" src="images/ux-portfolio/项目一Resonance Moments/6.1.png" onmouseenter="switchUXImg(this,'images/ux-portfolio/项目一Resonance Moments/6.1.png')" loading="lazy">
+<img class="ux-gallery-thumb" src="images/ux-portfolio/项目一Resonance Moments/7.12.png" onmouseenter="switchUXImg(this,'images/ux-portfolio/项目一Resonance Moments/7.12.png')" loading="lazy">
+
+      </div>
+    </div>
+    </div>
+
+    <div class="ux-project-group">
+      <h3 class="ux-project-title" id="ux-proj-2" style="font-size:14px;color:#888;margin-bottom:4px;border:none;padding:0;">02</h3>
+      <div class="ux-project-detail-title">非遗文化体感交互装置</div>
+      <div class="ux-project-detail-sub">面向公共空间的非遗互动体验设计</div>
+      <div class="modal-tags" style="margin:12px 0 20px;">
+        <span class="modal-tag">体感交互</span>
+        <span class="modal-tag">非遗传播</span>
+        <span class="modal-tag">Unity</span>
+        <span class="modal-tag">UX</span>
+      </div>
+      <div style="font-size:13px;color:#999;margin-bottom:8px;"><span style="color:#3b82f6;">|</span> 02 / 概述</div>
+      <p style="font-size:15px;color:#ccc;line-height:1.9;margin-bottom:32px;">Lantern Igniter 是一项面向公共空间的非遗互动体验设计，旨在通过体感游戏重新激活传统花灯文化，探索数字技术在文化传播中的新形式。项目围绕「花灯」这一国家级非遗元素，结合动作捕捉与多人协作机制，设计沉浸式交互体验，让参与者在运动与合作过程中了解传统文化。项目通过用户调研、体验测试及多轮迭代，进一步完善多人联机、难度调节与远程互动等设计方向，探索数字非遗在公共艺术装置、文旅展览及城市节庆活动中的应用可能。</p>
+      <div class="ux-gallery">
+      <div class="ux-gallery-main">
+        <img src="{path}/{main_img}" alt="{main_img}">
+      </div>
+      <div class="ux-gallery-thumbs">
+        <img class="ux-gallery-thumb active" src="images/ux-portfolio/项目二Lantern Igniter/1.png" onmouseenter="switchUXImg(this,'images/ux-portfolio/项目二Lantern Igniter/1.png')" loading="lazy">
+<img class="ux-gallery-thumb" src="images/ux-portfolio/项目二Lantern Igniter/2.png" onmouseenter="switchUXImg(this,'images/ux-portfolio/项目二Lantern Igniter/2.png')" loading="lazy">
+<img class="ux-gallery-thumb" src="images/ux-portfolio/项目二Lantern Igniter/3.png" onmouseenter="switchUXImg(this,'images/ux-portfolio/项目二Lantern Igniter/3.png')" loading="lazy">
+<img class="ux-gallery-thumb" src="images/ux-portfolio/项目二Lantern Igniter/4.png" onmouseenter="switchUXImg(this,'images/ux-portfolio/项目二Lantern Igniter/4.png')" loading="lazy">
+<img class="ux-gallery-thumb" src="images/ux-portfolio/项目二Lantern Igniter/5.1.png" onmouseenter="switchUXImg(this,'images/ux-portfolio/项目二Lantern Igniter/5.1.png')" loading="lazy">
+<img class="ux-gallery-thumb" src="images/ux-portfolio/项目二Lantern Igniter/6.1.png" onmouseenter="switchUXImg(this,'images/ux-portfolio/项目二Lantern Igniter/6.1.png')" loading="lazy">
+<img class="ux-gallery-thumb" src="images/ux-portfolio/项目二Lantern Igniter/7.png" onmouseenter="switchUXImg(this,'images/ux-portfolio/项目二Lantern Igniter/7.png')" loading="lazy">
+
+      </div>
+    </div>
+    </div>
+
+
+    <div class="ux-project-group">
+      <h3 class="ux-project-title" id="ux-proj-3" style="font-size:14px;color:#888;margin-bottom:4px;border:none;padding:0;">03</h3>
+      <div class="ux-project-detail-title">AR自动驾驶移动商业创新</div>
+      <div class="ux-project-detail-sub">面向未来移动商业的服务设计</div>
+      <div class="modal-tags" style="margin:12px 0 20px;">
+        <span class="modal-tag">商业模式创新</span>
+        <span class="modal-tag">产品/UX</span>
+        <span class="modal-tag">系统设计</span>
+        <span class="modal-tag">AR交互</span>
+      </div>
+      <div style="font-size:13px;color:#999;margin-bottom:8px;"><span style="color:#3b82f6;">|</span> 03 / 概述</div>
+      <p style="font-size:15px;color:#ccc;line-height:1.9;margin-bottom:32px;">Trunk Plan 是一项面向未来移动商业的服务设计项目，旨在探索自动驾驶时代下的新型街区零售模式。项目结合桌面研究、实地调研及商户访谈，梳理流动摊贩在经营、运输及获客过程中的核心痛点，并提出融合自动驾驶车辆、AR 商品展示及移动市集的新型服务体系。通过构建完整的服务流程、未来使用场景及交互原型，探索数字技术如何提升商户经营效率，同时为消费者打造更具沉浸感与互动性的线下购物体验。</p>
+      <div class="ux-gallery">
+      <div class="ux-gallery">
+      <div class="ux-gallery-main">
+        <img src="images/ux-portfolio/项目三Trunk Plan/1.45.png" alt="1.45.png">
+      </div>
+      <div class="ux-gallery-thumbs">
+        <img class="ux-gallery-thumb active" src="images/ux-portfolio/项目三Trunk Plan/1.45.png" onmouseenter="switchUXImg(this,'images/ux-portfolio/项目三Trunk Plan/1.45.png')" loading="lazy">
+<img class="ux-gallery-thumb" src="images/ux-portfolio/项目三Trunk Plan/2.345.png" onmouseenter="switchUXImg(this,'images/ux-portfolio/项目三Trunk Plan/2.345.png')" loading="lazy">
+<img class="ux-gallery-thumb" src="images/ux-portfolio/项目三Trunk Plan/3.23.png" onmouseenter="switchUXImg(this,'images/ux-portfolio/项目三Trunk Plan/3.23.png')" loading="lazy">
+<img class="ux-gallery-thumb" src="images/ux-portfolio/项目三Trunk Plan/3.23test.png" onmouseenter="switchUXImg(this,'images/ux-portfolio/项目三Trunk Plan/3.23test.png')" loading="lazy">
+<img class="ux-gallery-thumb" src="images/ux-portfolio/项目三Trunk Plan/4.34.png" onmouseenter="switchUXImg(this,'images/ux-portfolio/项目三Trunk Plan/4.34.png')" loading="lazy">
+<img class="ux-gallery-thumb" src="images/ux-portfolio/项目三Trunk Plan/5.234567.png" onmouseenter="switchUXImg(this,'images/ux-portfolio/项目三Trunk Plan/5.234567.png')" loading="lazy">
+<img class="ux-gallery-thumb" src="images/ux-portfolio/项目三Trunk Plan/6.234567.png" onmouseenter="switchUXImg(this,'images/ux-portfolio/项目三Trunk Plan/6.234567.png')" loading="lazy">
+
+      </div>
+    </div>
+    </div>
+
+    <div cl
+    <div class="ux-project-group">
+      <h3 class="ux-project-title" id="ux-proj-4" style="font-size:14px;color:#888;margin-bottom:4px;border:none;padding:0;">04</h3>
+      <div class="ux-project-detail-title">沉浸体验与考研心理健康支持</div>
+      <div class="ux-project-detail-sub">面向考研学生的 XR 学习支持系统</div>
+      <div class="modal-tags" style="margin:12px 0 20px;">
+        <span class="modal-tag">行为设计</span>
+        <span class="modal-tag">XR交互</span>
+        <span class="modal-tag">AI陪伴</span>
+      </div>
+      <div style="font-size:13px;color:#999;margin-bottom:8px;"><span style="color:#3b82f6;">|</span> 04 / 概述</div>
+      <p style="font-size:15px;color:#ccc;line-height:1.9;margin-bottom:32px;">Test Club 是一款面向考研学生的 XR 学习支持系统，旨在缓解长期备考过程中产生的焦虑、孤独感与学习压力。项目基于桌面研究、问卷调研及用户访谈，分析学生在备考阶段的心理状态与行为特征，并结合沉浸式空间、AI 虚拟伙伴及情绪反馈机制，构建集学习管理、情绪调节与陪伴支持于一体的学习体验。通过 XR 交互重新组织学习环境，帮助用户建立更加健康、持续的备考节奏，探索数字技术在心理健康支持中的应用价值。</p>
+      <div class="ux-gallery">
+      <div class="ux-gallery-main">
+        <img src="{path}/{main_img}" alt="{main_img}">
+      </div>
+      <div class="ux-gallery-thumbs">
+        <img class="ux-gallery-thumb active" src="images/ux-portfolio/项目四Test Club/reverse 1.png" onmouseenter="switchUXImg(this,'images/ux-portfolio/项目四Test Club/reverse 1.png')" loading="lazy">
+<img class="ux-gallery-thumb" src="images/ux-portfolio/项目四Test Club/reverse 2.png" onmouseenter="switchUXImg(this,'images/ux-portfolio/项目四Test Club/reverse 2.png')" loading="lazy">
+<img class="ux-gallery-thumb" src="images/ux-portfolio/项目四Test Club/reverse 3.png" onmouseenter="switchUXImg(this,'images/ux-portfolio/项目四Test Club/reverse 3.png')" loading="lazy">
+<img class="ux-gallery-thumb" src="images/ux-portfolio/项目四Test Club/reverse 4.png" onmouseenter="switchUXImg(this,'images/ux-portfolio/项目四Test Club/reverse 4.png')" loading="lazy">
+<img class="ux-gallery-thumb" src="images/ux-portfolio/项目四Test Club/reverse 5.png" onmouseenter="switchUXImg(this,'images/ux-portfolio/项目四Test Club/reverse 5.png')" loading="lazy">
+<img class="ux-gallery-thumb" src="images/ux-portfolio/项目四Test Club/reverse 6.png" onmouseenter="switchUXImg(this,'images/ux-portfolio/项目四Test Club/reverse 6.png')" loading="lazy">
+<img class="ux-gallery-thumb" src="images/ux-portfolio/项目四Test Club/reverse 7.png" onmouseenter="switchUXImg(this,'images/ux-portfolio/项目四Test Club/reverse 7.png')" loading="lazy">
+
+      </div>
+    </div>
+    </div>
+
+<!-- UX-INSERT -->
+
+<!-- ============================================================
+     PROJECT MODAL
+     ============================================================ -->
+<div class="modal-overlay" id="project-modal">
+  <button class="modal-close" id="modal-close">×</button>
+  <div class="modal-container">
+
+    <!-- Header -->
+    <div class="modal-label">学术研究项目</div>
+    <div class="modal-title">Speech Prosody Visualization<br><span style="font-size:0.5em;font-weight:500;">基于语音韵律可视化的英语发音学习支持研究</span></div>
+    <div class="modal-subtitle">Multisensory Support for English Pronunciation Learning</div>
+
+    <!-- Left: Overview + Info / Right: Preview -->
+    <div class="modal-body">
+      <div>
+        <p class="modal-overview-text"><strong>项目概述</strong></p>
+        <p class="modal-overview-text">智能眼镜语言学习系统是一项面向非母语英语学习者的多模态学习研究，旨在解决传统语音训练过度依赖听觉反馈、难以理解句子级语调与重音变化的问题。项目以语音韵律（Speech Prosody）为核心，将 Pitch 与 Intensity 等语音特征转化为可视化反馈，帮助学习者更直观地感知发音节奏与语调变化，并探索视觉反馈在英语发音学习中的辅助价值。相关成果发表于 Greater Bay Area Pre-CHI 2026 海报与论文。</p>
+        <div class="modal-bullet-list">
+	          <div class="work-bullet-item">基于 CTML（认知多媒体学习理论）设计多模态语音学习框架，构建从语音分析、数据处理到视觉映射的完整流程，实现语音韵律的实时可视化反馈。</div>
+	          <div class="work-bullet-item">围绕文字大小、颜色、垂直位置等视觉变量设计多组可视化方案，通过用户偏好实验筛选最优视觉编码，并形成融合式反馈方案。</div>
+	          <div class="work-bullet-item">采用 5 分 Likert 量表对可读性、理解度及学习辅助效果进行评估，验证该方法能够帮助学习者更直观地理解语音韵律，为后续游戏化语言学习提供设计基础。</div>
+	        </div>
+
+        <div class="modal-info-row">
+          <div class="modal-info-label">项目产出</div>
+          <div class="modal-info-text">学术论文、会议海报、用户研究、多模态可视化设计</div>
+        </div>
+        <div class="modal-info-row">
+          <div class="modal-info-label">页数</div>
+          <div class="modal-info-text">
+            <a href="WANG_Jingyi_Final_Poster.pdf" target="_blank">学术海报（Poster）</a>
+            <a href="WANG_Jingyi_Final_Report.pdf" target="_blank">论文（Paper）</a>
+          </div>
+        </div>
+        <div class="modal-info-row">
+          <div class="modal-info-label">项目标签</div>
+          <div class="modal-tags">
+            <span class="modal-tag">学术研究</span>
+            <span class="modal-tag">HCI</span>
+            <span class="modal-tag">信息可视化</span>
+            <span class="modal-tag">多模态学习</span>
+            <span class="modal-tag">Speech Prosody</span>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <img src="images/poster-detail.jpg" alt="研究海报" class="modal-preview-img">
+      </div>
+    </div>
+
+    </div>
+
+    <!-- Lanmao Content -->
+    <div id="modal-content-lanmao" style="display:none;">
+
+    <!-- Header -->
+    <div class="modal-label">全栈产品开发</div>
+    <div class="modal-title">租赁业务数字化与房东经营管理优化</div>
+    <div class="modal-subtitle">Claude | 全栈开发 | SaaS产品 | OCR识别</div>
+
+    <p class="modal-overview-text"><strong>项目概述</strong></p>
+    <p class="modal-overview-text">LanMao 是一款面向长租房房东的一体化经营管理小程序，旨在解决房源、租金、水电及电子锁等信息分散管理的问题。项目基于真实房东业务调研，重新梳理租赁管理流程，并围绕微信小程序构建房源管理、OCR录单及经营数据分析等核心能力。整个项目采用 AI 辅助开发模式，完成从产品设计、数据库建模到前后端实现与部署的全流程开发，并通过真实用户持续迭代，验证了产品在长租房经营场景中的实际应用价值。</p>
+
+    <div style="margin-top:20px;">
+      <p class="modal-overview-text"><strong>商业化验证</strong></p>
+      <p class="modal-overview-text">采用 MVP（Minimum Viable Product）策略完成市场验证，通过小红书虚拟商品完成产品冷启动，实现 100% 付费转化率（15/15），ARPPU ¥5.48，累计管理 76 套长租房源。依托免费 AI API 配额完成产品运营，初步验证了产品的商业可行性、持续使用意愿及真实业务场景价值。</p>
+    </div>
+
+    <div class="modal-info-row">
+      <div class="modal-info-label">项目产出</div>
+      <div class="modal-info-text">微信小程序、OCR录单系统、经营数据看板、SaaS产品</div>
+    </div>
+    <div class="modal-info-row">
+      <div class="modal-info-label">项目标签</div>
+      <div class="modal-tags">
+        <span class="modal-tag">Claude</span>
+        <span class="modal-tag">全栈开发</span>
+        <span class="modal-tag">SaaS产品</span>
+        <span class="modal-tag">OCR识别</span>
+        <span class="modal-tag">产品设计</span>
+      </div>
+    </div>
+
+    </div>
+
+    <!-- Poster Full Display -->
+    <div class="modal-separator"></div>
+    <div class="modal-poster-section fade-in">
+      <img src="images/poster-detail.jpg" alt="学术海报完整展示">
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ============================================================
+     UX PORTFOLIO MODAL
+     ============================================================ -->
+<div class="modal-overlay" id="ux-modal">
+  <button class="modal-close ux-close">&times;</button>
+  <div class="modal-container">
+    <div class="modal-label">Interactive Design · Individual Project</div>
+    <div class="modal-title" style="font-size:56px;line-height:1.05;">发散型交互体验设计</div>
+    <div class="modal-subtitle" style="margin-bottom:32px;">Preview &nbsp; 2024.8 &ndash; 2025.5</div>
+    <div class="modal-info-row">
+      <div class="modal-info-label">项目产出</div>
+      <div class="modal-info-text">UI · XR · 游戏化设计 · 可穿戴运动装置</div>
+    </div>
+    <div class="modal-info-row">
+      <div class="modal-info-label">页数（及图片数）</div>
+      <div class="modal-info-text">28 张视觉案例整合展示</div>
+    </div>
+    <div class="ux-sub-nav">
+      <span style="font-size:12px;color:#888;">选择子项目</span>
+      <button class="modal-tag ux-nav-btn" onclick="scrollToUX(0)">社会干预游戏</button>
+      <button class="modal-tag ux-nav-btn" onclick="scrollToUX(1)">体感交互</button>
+      <button class="modal-tag ux-nav-btn" onclick="scrollToUX(2)">商业创新</button>
+      <button class="modal-tag ux-nav-btn" onclick="scrollToUX(3)">智能陪伴</button>
+    </div>
+    <div class="modal-separator"></div>
+
+<script>
+function switchUXImg(t,s){var g=t.closest(".ux-gallery");g.querySelector(".ux-gallery-main img").src=s;g.querySelectorAll(".ux-gallery-thumb").forEach(function(x){x.classList.remove("active")});t.classList.add("active")}
+</script>
+<script>
+function scrollToUX(n){var e=document.getElementById("ux-proj-"+(n+1));if(e)e.scrollIntoView({behavior:"smooth",block:"start"});document.querySelectorAll(".ux-nav-btn").forEach(function(b,i){b.classList.toggle("active",i===n)})}
+</script>
+dth=device-width, initial-scale=1.0">
+<title>WANG JINGYI | 交互设计师 & 产品经理</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+SC:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #000000;
+  --surface: #0d0d0d;
+  --surface-hover: #141414;
+  --border: #222222;
+  --border-light: #2a2a2a;
+  --text-primary: #ffffff;
+  --text-secondary: #b0b0b0;
+  --text-tertiary: #707070;
+  --accent: #3b82f6;
+  --accent-dim: #2563eb;
+  --radius: 10px;
+  --radius-sm: 6px;
+  --max-width: 1280px;
+  --side-padding: 80px;
+  --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
+  color: var(--text-primary);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+a { color: var(--accent); text-decoration: none; transition: var(--transition); }
+a:hover { color: #60a5fa; }
+
+/* ============================================================
+   SCROLLBAR
+   ============================================================ */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #333; border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: #555; }
+
+/* ============================================================
+   NAVIGATION
+   ============================================================ */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 20px var(--side-padding);
+  display: flex; justify-content: space-between; align-items: center;
+  background: rgba(0,0,0,0.85); backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.nav-brand {
+  font-size: 13px; font-weight: 500; color: var(--text-secondary);
+  letter-spacing: 1.5px; text-transform: uppercase;
+}
+.nav-links { display: flex; gap: 32px; align-items: center; }
+.nav-links a {
+  font-size: 13px; color: var(--text-secondary); font-weight: 400;
+  letter-spacing: 0.5px; transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--text-primary); }
+
+/* ============================================================
+   SECTIONS COMMON
+   ============================================================ */
+.section {
+  padding: 100px var(--side-padding);
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+.section-divider {
+  width: 100%; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+  max-width: var(--max-width); margin: 0 auto;
+}
+
+/* Two-column layout */
+.section-grid {
+  display: grid; grid-template-columns: 240px 1fr; gap: 80px;
+  align-items: start;
+}
+.section-label h2 {
+  font-size: 22px; font-weight: 700; color: var(--text-primary);
+  letter-spacing: -0.3px; margin-bottom: 10px;
+}
+.section-label p {
+  font-size: 13px; color: var(--text-tertiary); line-height: 1.6;
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero {
+  padding: 160px var(--side-padding) 80px;
+  max-width: var(--max-width); margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 300px; gap: 80px;
+  align-items: center;
+  min-height: 100vh;
+}
+.hero-name {
+  font-size: clamp(72px, 8vw, 128px);
+  font-weight: 900; line-height: 0.95;
+  letter-spacing: -3px; color: var(--text-primary);
+  margin-bottom: 24px;
+}
+.hero-name span { display: block; font-size: 0.4em; font-weight: 600; letter-spacing: 0; color: var(--text-secondary); margin-top: 8px; }
+.hero-school { font-size: 15px; color: var(--text-secondary); margin-bottom: 6px; }
+.hero-title { font-size: 15px; font-weight: 600; color: var(--text-primary); margin-bottom: 20px; }
+.hero-bio { font-size: 14px; color: var(--text-secondary); line-height: 1.8; max-width: 480px; }
+.hero-grad {
+  display: inline-block; margin-top: 20px; font-size: 12px; color: var(--text-tertiary);
+  border: 1px solid var(--border); border-radius: var(--radius-sm);
+  padding: 6px 14px;
+}
+
+/* Hero photo card */
+.hero-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); overflow: hidden;
+  transition: var(--transition);
+}
+.hero-card:hover { transform: translateY(-4px); border-color: var(--border-light); }
+.hero-card-img {
+  width: 100%; aspect-ratio: 3/4; background: #1a1a1a;
+  display: flex; align-items: center; justify-content: center;
+  color: #333; font-size: 13px; overflow: hidden;
+}
+.hero-card-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.hero-card-info {
+  padding: 16px 20px; display: flex; justify-content: space-around;
+  text-align: center;
+}
+.hero-card-info .stat { font-size: 12px; color: var(--text-tertiary); }
+.hero-card-info .stat strong { display: block; font-size: 18px; color: var(--text-primary); font-weight: 700; }
+
+/* ============================================================
+   WORK EXPERIENCE
+   ============================================================ */
+.work-list { display: flex; flex-direction: column; gap: 48px; }
+.work-item {
+  position: relative; padding-bottom: 48px; border-bottom: 1px solid var(--border);
+  display: flex; gap: 32px; align-items: flex-start;
+}
+.work-item:last-child { border-bottom: none; padding-bottom: 0; }
+.work-time {
+  font-size: 13px; color: var(--text-tertiary); letter-spacing: 0.5px;
+  min-width: 130px; flex-shrink: 0; text-align: right; padding-top: 2px;
+}
+.work-details { flex: 1; }
+.work-company { font-size: 18px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px; }
+.work-role { font-size: 14px; color: var(--text-secondary); margin-bottom: 20px; }
+.work-project { margin-top: 16px; padding-left: 20px; border-left: 1px solid var(--border); position: relative; }
+.work-project-time {
+  font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 12px;
+  position: relative;
+}
+.work-project-time::before {
+  content: '●'; font-size: 8px; color: var(--text-tertiary);
+  position: absolute; left: -24.5px; top: 0;
+  line-height: 1.5;
+}
+.work-project-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.8; display: flex; flex-direction: column; gap: 10px; }
+.work-bullet { color: var(--text-tertiary); margin-right: 8px; font-size: 8px; }
+.work-bullet.secondary { opacity: 0.4; }
+.work-bullet-item { color: var(--text-secondary); cursor: default; transition: color 0.2s; display: block; position: relative; }
+.work-bullet-item:hover { color: #fff; }
+.work-bullet-item::before {
+  content: '○'; font-size: 7px; color: var(--text-tertiary);
+  position: absolute; left: -23.5px; top: 0;
+  line-height: 1.8;
+}
+
+/* ============================================================
+   EDUCATION
+   ============================================================ */
+.edu-section { position: relative; overflow: hidden; }
+.edu-watermark {
+  position: absolute; left: 0; top: 50%; transform: translateY(-50%);
+  font-size: 80px; font-weight: 900; color: rgba(255,255,255,0.015);
+  white-space: nowrap; pointer-events: none; user-select: none;
+  letter-spacing: -2px;
+}
+.edu-item {
+  margin-bottom: 48px; padding-bottom: 48px; border-bottom: 1px solid var(--border);
+  display: flex; gap: 32px; align-items: flex-start;
+}
+.edu-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.edu-time {
+  font-size: 13px; color: var(--text-tertiary);
+  min-width: 130px; flex-shrink: 0; text-align: right; padding-top: 2px;
+}
+.edu-details { flex: 1; }
+.edu-school { font-size: 18px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px; }
+.edu-degree { font-size: 14px; color: var(--text-secondary); margin-bottom: 16px; }
+.edu-detail-title { font-size: 12px; font-weight: 600; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; margin-top: 16px; }
+.edu-courses, .edu-awards { font-size: 13px; color: var(--text-secondary); line-height: 1.8; }
+.edu-awards { list-style: none; padding: 0; }
+.edu-awards li { margin-bottom: 6px; }
+.edu-awards li::before { content: '○'; color: var(--text-tertiary); margin-right: 8px; font-size: 10px; }
+.edu-gpa {
+  display: inline-block; font-size: 12px; color: var(--accent);
+  border: 1px solid rgba(59,130,246,0.3); border-radius: var(--radius-sm);
+  padding: 4px 12px; margin-top: 12px;
+}
+
+/* ============================================================
+   PROJECT PORTFOLIO
+   ============================================================ */
+.project-header {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 48px; flex-wrap: wrap; gap: 20px;
+}
+.project-title { font-size: 22px; font-weight: 700; }
+
+.filter-tabs { display: flex; gap: 6px; }
+.filter-tab {
+  padding: 8px 18px; border-radius: 20px; font-size: 13px;
+  font-weight: 500; cursor: pointer; transition: var(--transition);
+  color: var(--text-secondary); background: transparent;
+  border: 1px solid var(--border);
+  white-space: nowrap;
+}
+.filter-tab:hover { border-color: var(--text-tertiary); color: var(--text-primary); }
+.filter-tab.active { background: #fff; color: #000; border-color: #fff; }
+.filter-tab .count { font-size: 11px; opacity: 0.7; }
+
+.project-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+}
+.project-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); overflow: hidden;
+  transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94), border-color 0.45s, background 0.45s, box-shadow 0.45s;
+  cursor: pointer;
+  position: relative;
+  box-shadow: 0 0 0 rgba(0,0,0,0);
+}
+.project-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  border-color: #333;
+  background: var(--surface-hover);
+  box-shadow: 0 24px 48px rgba(0,0,0,0.45), 0 0 0 1px rgba(255,255,255,0.04);
+}
+.project-card:hover .project-arrow {
+  transform: translate(4px, -4px);
+  opacity: 1;
+}
+.project-cover {
+  width: 100%; aspect-ratio: 16/10; background: #141414;
+  overflow: hidden; position: relative;
+}
+.project-cover img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  filter: grayscale(1); transition: filter 0.4s ease, transform 0.4s ease;
+}
+.project-card:hover .project-cover img { filter: grayscale(0); transform: scale(1.03); }
+.project-cover-placeholder {
+  width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
+  background: #1a1a1a; color: #333; font-size: 13px;
+}
+.project-arrow {
+  position: absolute; top: 14px; right: 14px;
+  width: 28px; height: 28px; border-radius: 50%;
+  background: rgba(255,255,255,0.08); backdrop-filter: blur(4px);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; color: #fff; opacity: 0; transition: var(--transition);
+}
+.project-body { padding: 20px; }
+.project-name { font-size: 17px; font-weight: 600; margin-bottom: 6px; }
+.project-subtitle { font-size: 12px; color: var(--text-tertiary); margin-bottom: 14px; line-height: 1.5; }
+.project-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.project-tag {
+  padding: 4px 10px; border-radius: var(--radius-sm);
+  font-size: 11px; color: var(--text-secondary);
+  background: rgba(255,255,255,0.05); border: 1px solid var(--border);
+  white-space: nowrap;
+}
+
+/* ============================================================
+   RESEARCH SECTION
+   ============================================================ */
+.research-header {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  margin-bottom: 32px; gap: 40px;
+}
+.research-header .research-desc {
+  font-size: 13px; color: var(--text-tertiary); line-height: 1.6;
+  text-align: right; max-width: 520px;
+}
+.research-card {
+  background: #0a0a0a;
+  background-image: repeating-linear-gradient(
+    -45deg, transparent, transparent 2px,
+    rgba(255,255,255,0.012) 2px, rgba(255,255,255,0.012) 4px
+  );
+  border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 28px;
+  transition: var(--transition);
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 32px;
+}
+.research-card:hover { border-color: var(--border-light); }
+.research-info { flex: 1; }
+.research-label { font-size: 11px; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+.research-title {
+  font-size: 18px; font-weight: 600; color: var(--text-primary);
+  line-height: 1.5; margin-bottom: 20px;
+}
+.research-link {
+  font-size: 13px; color: var(--accent); white-space: nowrap;
+  display: inline-flex; align-items: center; gap: 6px; transition: var(--transition);
+}
+.research-link:hover { gap: 12px; }
+.research-cover {
+  width: 200px; height: 260px; flex-shrink: 0; border-radius: 6px;
+  overflow: hidden; background: #141414;
+}
+.research-cover img {
+  width: 100%; height: 100%; object-fit: cover;
+  filter: grayscale(1); transition: filter 0.4s ease, transform 0.4s ease;
+}
+.research-card:hover .research-cover img {
+  filter: grayscale(0); transform: translateY(-4px);
+}
+
+/* ============================================================
+   GITHUB SECTION
+   ============================================================ */
+.github-header {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 32px;
+}
+.github-header h2 { font-size: 22px; font-weight: 700; }
+.github-link {
+  font-size: 13px; color: var(--accent);
+  display: flex; align-items: center; gap: 6px;
+}
+.github-link:hover { gap: 10px; }
+.github-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;
+}
+.github-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 22px;
+  transition: var(--transition); cursor: pointer;
+  position: relative;
+}
+.github-card:hover { border-color: var(--border-light); transform: translateY(-2px); }
+.github-card-name {
+  font-size: 15px; font-weight: 600; color: var(--accent); margin-bottom: 8px;
+}
+.github-card-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 14px; }
+.github-card-meta { display: flex; align-items: center; gap: 14px; font-size: 12px; color: var(--text-tertiary); }
+.github-lang-dot { width: 8px; height: 8px; border-radius: 50%; background: #f0db4f; display: inline-block; }
+.github-card .visibility-tag {
+  position: absolute; top: 16px; right: 16px;
+  padding: 3px 10px; border-radius: 12px; font-size: 11px;
+  border: 1px solid var(--border); color: var(--text-tertiary);
+}
+
+/* ============================================================
+   CONTACT / FOOTER
+   ============================================================ */
+.contact-section {
+  padding: 60px var(--side-padding);
+  max-width: var(--max-width); margin: 0 auto;
+  display: flex; justify-content: flex-end;
+}
+.contact-block { display: flex; flex-direction: column; }
+.contact-label-title {
+  font-size: 12px; color: #999; margin-bottom: 24px;
+  text-transform: uppercase; letter-spacing: 1.5px;
+  text-align: right;
+}
+.contact-row { display: flex; align-items: baseline; gap: 40px; }
+.contact-key {
+  font-size: 12px; color: #999;
+  text-transform: uppercase; letter-spacing: 1px;
+}
+.contact-val { font-size: 14px; color: #fff; margin-left: auto; }
+.contact-dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: #fff; opacity: 0.3;
+}
+
+.footer {
+  padding: 24px var(--side-padding);
+  display: flex; justify-content: space-between; align-items: center;
+  max-width: var(--max-width); margin: 0 auto;
+  border-top: 1px solid var(--border);
+  font-size: 12px; color: var(--text-tertiary);
+}
+.lang-switch { display: flex; gap: 4px; }
+.lang-btn {
+  width: 36px; height: 36px; border-radius: 50%;
+  border: 1px solid var(--border); cursor: pointer;
+  font-size: 11px; font-weight: 600;
+  background: transparent; color: var(--text-secondary);
+  transition: var(--transition);
+  display: flex; align-items: center; justify-content: center;
+}
+.lang-btn.active { background: #fff; color: #000; border-color: #fff; }
+.lang-btn:hover:not(.active) { border-color: var(--text-tertiary); color: var(--text-primary); }
+
+/* ============================================================
+   PROJECT MODAL
+   ============================================================ */
+.modal-overlay {
+  position: fixed; inset: 0; z-index: 200;
+  background: rgba(0,0,0,0.92); backdrop-filter: blur(8px);
+  display: flex; align-items: flex-start; justify-content: center;
+  overflow-y: auto; padding: 60px 20px 100px;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+.modal-overlay.active { opacity: 1; pointer-events: auto; }
+.modal-container { max-width: 100%; width: 100%; padding: 0 40px; }
+.modal-close {
+  position: fixed; top: 24px; right: 32px; z-index: 201;
+  width: 40px; height: 40px; border-radius: 50%;
+  border: 1px solid #333; background: rgba(0,0,0,0.6);
+  color: #fff; font-size: 20px; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.2s;
+}
+.modal-close:hover { background: #fff; color: #000; border-color: #fff; }
+.modal-label { font-size: 12px; color: #888; margin-bottom: 8px; }
+.modal-title { font-size: 48px; font-weight: 900; color: #fff; margin-bottom: 12px; letter-spacing: -1px; }
+.modal-subtitle { font-size: 18px; color: #b0b0b0; margin-bottom: 48px; line-height: 1.5; }
+.modal-body { display: grid; grid-template-columns: 1fr 420px; gap: 48px; align-items: start; margin-bottom: 48px; }
+.modal-info-row { border-top: 1px solid #222; padding: 12px 0; display: flex; align-items: baseline; gap: 24px; }
+.modal-info-row:last-child { border-bottom: 1px solid #222; }
+.modal-info-label { font-size: 13px; color: #888; flex-shrink: 0; width: 110px; }
+.modal-info-text { font-size: 15px; color: #ccc; line-height: 1.7; }
+.modal-info-text a { color: var(--accent); margin-right: 20px; }
+.modal-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.modal-tag {
+  padding: 6px 14px; border-radius: 4px; font-size: 12px;
+  color: #ccc; background: #161616; border: 1px solid #333;
+}
+.modal-preview-img { width: 100%; border-radius: 8px; border: 1px solid #222; }
+.modal-overview-text { font-size: 14px; color: #b0b0b0; line-height: 1.9; margin-bottom: 16px; }
+.modal-overview-text strong { color: #fff; }
+.modal-bullet-list {
+  margin: 0 0 16px 0; padding-left: 20px;
+  border-left: 1px solid var(--border);
+  display: flex; flex-direction: column; gap: 10px;
+  font-size: 13px; color: var(--text-secondary); line-height: 1.8;
+}
+.modal-poster-section { margin-top: 16px; }
+.modal-poster-section img { width: 100%; border-radius: 8px; border: 1px solid #222; }
+.modal-separator { width: 100%; height: 1px; background: #222; margin: 32px 0; }
+.ux-nav-btn { cursor: pointer; background: #161616; border: 1px solid #333; color: #ccc; padding: 6px 16px; border-radius: 4px; font-size: 12px; transition: var(--transition); }
+.ux-nav-btn:hover, .ux-nav-btn.active { background: #fff; color: #000; border-color: #fff; }
+.ux-sub-nav { position: sticky; top: 12px; z-index: 10; display: flex; align-items: center; gap: 6px; justify-content: flex-end; padding: 8px 0; margin-bottom: 24px; }
+.ux-project-group { margin-bottom: 40px; }
+.ux-project-title { font-size: 18px; font-weight: 600; color: #fff; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid #222; }
+.ux-project-detail-title { font-size: 48px; font-weight: 900; color: #fff; line-height: 1.1; }
+.ux-project-detail-sub { font-size: 16px; color: #aaa; margin-top: 8px; }
+.ux-gallery { display: flex; gap: 14px; align-items: flex-start; }
+.ux-gallery-main { flex: 1; min-width: 0; }
+.ux-gallery-main img { width: 100%; border-radius: 4px; border: 1px solid #222; display: block; }
+.ux-gallery-thumbs { width: 130px; flex-shrink: 0; display: flex; flex-direction: column; gap: 6px; max-height: 520px; overflow-y: auto; }
+.ux-gallery-thumb { width: 130px; height: 85px; object-fit: cover; border-radius: 3px; border: 1px solid #333; cursor: pointer; opacity: 0.45; transition: all 0.2s; display: block; }
+.ux-gallery-thumb:hover, .ux-gallery-thumb.active { opacity: 1; border-color: #fff; }
+
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
+.fade-in {
+  opacity: 0; transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 900px) {
+  :root { --side-padding: 28px; }
+  .hero { grid-template-columns: 1fr; gap: 48px; padding-top: 120px; min-height: auto; }
+  .hero-card { max-width: 220px; }
+  .section-grid { grid-template-columns: 1fr; gap: 32px; }
+  .project-grid, .github-grid { grid-template-columns: 1fr; }
+  .nav-links { display: none; }
+  .edu-watermark { font-size: 40px; }
+}
+@media (min-width: 901px) and (max-width: 1100px) {
+  :root { --side-padding: 48px; }
+  .hero { gap: 48px; grid-template-columns: 1fr 240px; }
+  .section-grid { gap: 48px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     NAV
+     ============================================================ -->
+<nav class="nav">
+  <div class="nav-brand">WANG JINGYI / PF2027</div>
+  <div class="nav-links">
+    <a href="#projects">项目作品</a>
+    <a href="#work">工作经历</a>
+    <a href="香港城市大学-王静怡-27届毕业-一周内到岗-3个月以上.pdf" download>下载简历</a>
+    <a href="#github">联系我</a>
+  </div>
+</nav>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="hero">
+  <div class="hero-main">
+    <h1 class="hero-name fade-in">
+      王静怡
+      <span>Sylvia Wang</span>
+    </h1>
+    <p class="hero-school fade-in">毕业于香港城市大学</p>
+    <p class="hero-title fade-in">交互设计师 & 产品经理。</p>
+    <p class="hero-bio fade-in">专注于交互体验设计 / 产品战略思维 / AI 驱动的全链路产品研发。</p>
+    <div class="hero-grad fade-in">预计毕业时间：2027 年 6 月</div>
+  </div>
+  <div class="hero-card fade-in">
+    <div class="hero-card-img">
+      <!-- ★ 替换: 个人照片，建议 3:4 比例半身照 ★ -->
+      <img src="images/hero-photo-个人照片-半身照.jpg" alt="王静怡" onerror="this.style.display='none';this.parentElement.innerHTML='<div style=width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#1a1a1a;color:#333;font-size:13px>个人照片<br>3:4 半身照</div>'">
+    </div>
+    <div class="hero-card-info">
+      <div class="stat"><strong>23</strong>年龄</div>
+      <div class="stat"><strong>1 年</strong>工作经验</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     WORK EXPERIENCE
+     ============================================================ -->
+<section class="section" id="work">
+  <div class="section-grid">
+    <div class="section-label">
+      <h2>工作经历</h2>
+      <p>在 AI 产品设计与 AR 交互开发方向拥有丰富的实践经验。</p>
+    </div>
+    <div class="section-content">
+      <div class="work-list">
+
+        <!-- Work 1 -->
+        <div class="work-item fade-in">
+          <div class="work-time">2025.9 – 2026.2</div>
+          <div class="work-details">
+          <div class="work-company">深圳市合智创新人工智能科技有限公司</div>
+          <div class="work-role">AI 产品经理 · 深圳</div>
+
+          <div class="work-project">
+            <div class="work-project-time">全生命周期设计 · 需求分析 · UX · 模型选型 · 效果评估</div>
+            <div class="work-project-desc">
+              <span class="work-bullet-item">需求分析：面向小学低年级课堂绘本创作场景，发现开放式创作存在两类核心问题：一是文生图角色一致性较差、图片生成耗时较长，难以满足课堂实时使用；二是在课堂试点中发现，部分低龄学生缺乏组织故事内容能力</span>
+              <span class="work-bullet-item">模型选型与优化：将开放式创作重构为"角色设定→场景选择→情节引导→故事生成"的结构化工作流，通过角色约束与Prompt规则优化，兼顾课堂生成效率与内容稳定性</span>
+              <span class="work-bullet-item">效果评估：大语言模型Token调用降低40%，文生图平均生成时间由8s优化至3s，完成AI绘本课堂试点与系统数据埋点，为后续课堂应用提供产品验证</span>
+            </div>
+          </div>
+          </div>
+        </div>
+
+        <!-- Work 2 -->
+        <div class="work-item fade-in">
+          <div class="work-time">2025.5 – 2025.8</div>
+          <div class="work-details">
+          <div class="work-company">边辕视觉科技（上海）有限公司</div>
+          <div class="work-role">AR 开发工程师 · 武汉</div>
+
+          <div class="work-project">
+            <div class="work-project-time">Unity · MRTK · AR 交互 · 智能体 · SDK 技术文档</div>
+            <div class="work-project-desc">
+              <span class="work-bullet-item">基于 MRTK 开发 AR 交互模块，实现 3D 空间 UI 组件及手势交互逻辑（Hand Ray、Near Interaction）</span>
+              <span class="work-bullet-item">独立实现虚拟交互形象"小狐狸"，支持自主导航、动画反馈与情境化引导</span>
+              <span class="work-bullet-item">负责编写中英双语技术文档，涵盖 SDK 配置、AR 眼镜与 PC 调试流程及兼容性与交互问题的实际解决方案</span>
+            </div>
+          </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ============================================================
+     EDUCATION
+     ============================================================ -->
+<section class="section edu-section" id="education">
+  <div class="section-grid">
+    <div class="section-label">
+      <h2>教育经历<br>与奖项</h2>
+    </div>
+    <div class="section-content" style="position:relative;">
+      <!-- Watermark -->
+      <div class="edu-watermark">CityU · HCI</div>
+
+      <!-- School 1 -->
+      <div class="edu-item fade-in">
+        <div class="edu-time">2025.9 – 至今<br><span style="font-size:11px;color:#555;">预计 2027.6 毕业</span></div>
+        <div class="edu-details">
+        <div class="edu-school">香港城市大学</div>
+        <div class="edu-degree">艺术学硕士（人机交互） · QS 62</div>
+        <div class="edu-detail-title">主要课程</div>
+        <div class="edu-courses">人工智能物联网 · 人机交互 · 机器学习：算法与应用 · 虚拟现实技术与应用 · 信息可视化</div>
+        <div class="edu-detail-title">荣誉与奖项</div>
+        <div class="modal-bullet-list" style="margin-top:12px;">
+          <div class="work-bullet-item">HK TECH300 入围 — 项目 [Pictale] 获得 HK00,000 Seed Fund</div>
+          <div class="work-bullet-item">学术海报 A Study on Multisensory English Pronunciation Learning Support Based on Speech Prosody Visualization 发表于 Greater Bay Area Pre-CHI 2026</div>
+        </div>
+      </div>
+      </div>
+
+      <!-- School 2 -->
+      <div class="edu-item fade-in">
+        <div class="edu-time">2021.9 – 2025.6</div>
+        <div class="edu-details">
+        <div class="edu-school">武汉工程大学</div>
+        <div class="edu-degree">工学学士（数字媒体技术）</div>
+        <div class="edu-detail-title">主要课程</div>
+        <div class="edu-courses">高级程序设计 A (94) · 线性代数 (92) · 数字逻辑 (97) · 软件工程 (93) · 计算机图形学 (95) · 数字图像处理</div>
+        <div class="edu-gpa">GPA 3.76 / 5.0 — Top 2%</div>
+        <div class="edu-detail-title">荣誉与奖项</div>
+        <div class="modal-bullet-list" style="margin-top:12px;">
+          <div class="work-bullet-item">第十四届蓝桥杯大赛专项赛暨首届"元境杯"全国二等奖</div>
+          <div class="work-bullet-item">中国大学生计算机设计大赛中南地区赛三等奖</div>
+          <div class="work-bullet-item">二等学业奖学金 (2023-2024) · 一等学业奖学金 (2024-2025)</div>
+        </div>
+      </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ============================================================
+     PROJECT PORTFOLIO
+     ============================================================ -->
+<section class="section" id="projects">
+  <div class="project-header">
+    <h2 class="project-title">项目作品集</h2>
+    <div class="filter-tabs">
+      <button class="filter-tab active" data-filter="all">全部 <span class="count">(03)</span></button>
+      <button class="filter-tab" data-filter="ai">AI 产品 <span class="count">(01)</span></button>
+      <button class="filter-tab" data-filter="hci">HCI 研究 <span class="count">(01)</span></button>
+      <button class="filter-tab" data-filter="dev">开发 <span class="count">(01)</span></button>
+    </div>
+  </div>
+
+  <div class="project-grid">
+
+    <!-- Project 1: 语音韵律可视化研究 -->
+    <div class="project-card fade-in" data-category="hci" onclick="document.getElementById('project-modal').classList.add('active')" style="cursor:pointer;">
+      <div class="project-cover">
+        <img src="语言学习研究效果图.png" alt="基于语音韵律可视化的英语发音学习支持研究" onerror="this.style.display='none';this.parentElement.innerHTML='<div class=project-cover-placeholder>语音韵律可视化研究<br>封面图 · 语音学习研究</div>'">
+        <div class="project-arrow">↗</div>
+      </div>
+      <div class="project-body">
+        <div class="project-name">基于语音韵律可视化的英语发音学习支持研究</div>
+        <div class="project-subtitle">AI语音分析 | 多模态学习 | HCI研究</div>
+        <div class="project-tags">
+          <span class="project-tag">语音韵律可视化</span>
+          <span class="project-tag">CTML</span>
+          <span class="project-tag">英语发音学习</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 2: 发散型交互体验设计 -->
+    <div class="project-card fade-in" data-category="dev" onclick="document.getElementById('ux-modal').classList.add('active')" style="cursor:pointer;">
+      <div class="project-cover">
+        <img src="images/project-02-发散型交互体验设计-封面.jpg" alt="发散型交互体验设计" onerror="this.style.display='none';this.parentElement.innerHTML='<div class=project-cover-placeholder>发散型交互体验设计<br>封面图 · 交互体验合集</div>'">
+        <div class="project-arrow">&nearr;</div>
+      </div>
+      <div class="project-body">
+        <div class="project-name">发散型交互体验设计</div>
+        <div class="project-subtitle">UI | XR | 游戏化设计 | 可穿戴运动装置</div>
+        <div class="project-tags">
+          <span class="project-tag">人机交互</span>
+          <span class="project-tag">交互体验设计</span>
+          <span class="project-tag">产品/UX</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 3: LanmaoAssist -->
+    <div class="project-card fade-in" data-category="ai" onclick="document.getElementById('project-modal').classList.add('active')" style="cursor:pointer;">
+      <div class="project-cover">
+        <img src="images/project-03-LanmaoAssist-房源管理系统封面.jpg" alt="LanmaoAssist" onerror="this.style.display='none';this.parentElement.innerHTML='<div class=project-cover-placeholder>LanmaoAssist<br>封面图 · 房源管理后台</div>'">
+        <div class="project-arrow">↗</div>
+      </div>
+      <div class="project-body">
+        <div class="project-name">租赁业务数字化与房东经营管理优化</div>
+        <div class="project-subtitle">Claude | 全栈开发 | SaaS产品 | OCR识别</div>
+        <div class="project-tags">
+          <span class="project-tag">Claude</span>
+          <span class="project-tag">全栈开发</span>
+          <span class="project-tag">SaaS产品</span>
+          <span class="project-tag">OCR识别</span>
           <span class="project-tag">产品设计</span>
         </div>
       </div>
@@ -936,6 +2188,41 @@ document.addEventListener('DOMContentLoaded', () => {
       </div>
     </div>
 
+    </div>
+
+    <!-- Lanmao Content -->
+    <div id="modal-content-lanmao" style="display:none;">
+
+    <!-- Header -->
+    <div class="modal-label">全栈产品开发</div>
+    <div class="modal-title">租赁业务数字化与房东经营管理优化</div>
+    <div class="modal-subtitle">Claude | 全栈开发 | SaaS产品 | OCR识别</div>
+
+    <p class="modal-overview-text"><strong>项目概述</strong></p>
+    <p class="modal-overview-text">LanMao 是一款面向长租房房东的一体化经营管理小程序，旨在解决房源、租金、水电及电子锁等信息分散管理的问题。项目基于真实房东业务调研，重新梳理租赁管理流程，并围绕微信小程序构建房源管理、OCR录单及经营数据分析等核心能力。整个项目采用 AI 辅助开发模式，完成从产品设计、数据库建模到前后端实现与部署的全流程开发，并通过真实用户持续迭代，验证了产品在长租房经营场景中的实际应用价值。</p>
+
+    <div style="margin-top:20px;">
+      <p class="modal-overview-text"><strong>商业化验证</strong></p>
+      <p class="modal-overview-text">采用 MVP（Minimum Viable Product）策略完成市场验证，通过小红书虚拟商品完成产品冷启动，实现 100% 付费转化率（15/15），ARPPU ¥5.48，累计管理 76 套长租房源。依托免费 AI API 配额完成产品运营，初步验证了产品的商业可行性、持续使用意愿及真实业务场景价值。</p>
+    </div>
+
+    <div class="modal-info-row">
+      <div class="modal-info-label">项目产出</div>
+      <div class="modal-info-text">微信小程序、OCR录单系统、经营数据看板、SaaS产品</div>
+    </div>
+    <div class="modal-info-row">
+      <div class="modal-info-label">项目标签</div>
+      <div class="modal-tags">
+        <span class="modal-tag">Claude</span>
+        <span class="modal-tag">全栈开发</span>
+        <span class="modal-tag">SaaS产品</span>
+        <span class="modal-tag">OCR识别</span>
+        <span class="modal-tag">产品设计</span>
+      </div>
+    </div>
+
+    </div>
+
     <!-- Poster Full Display -->
     <div class="modal-separator"></div>
     <div class="modal-poster-section fade-in">
@@ -1141,6 +2428,41 @@ document.addEventListener('DOMContentLoaded', () => {
       </div>
     </div>
 
+    </div>
+
+    <!-- Lanmao Content -->
+    <div id="modal-content-lanmao" style="display:none;">
+
+    <!-- Header -->
+    <div class="modal-label">全栈产品开发</div>
+    <div class="modal-title">租赁业务数字化与房东经营管理优化</div>
+    <div class="modal-subtitle">Claude | 全栈开发 | SaaS产品 | OCR识别</div>
+
+    <p class="modal-overview-text"><strong>项目概述</strong></p>
+    <p class="modal-overview-text">LanMao 是一款面向长租房房东的一体化经营管理小程序，旨在解决房源、租金、水电及电子锁等信息分散管理的问题。项目基于真实房东业务调研，重新梳理租赁管理流程，并围绕微信小程序构建房源管理、OCR录单及经营数据分析等核心能力。整个项目采用 AI 辅助开发模式，完成从产品设计、数据库建模到前后端实现与部署的全流程开发，并通过真实用户持续迭代，验证了产品在长租房经营场景中的实际应用价值。</p>
+
+    <div style="margin-top:20px;">
+      <p class="modal-overview-text"><strong>商业化验证</strong></p>
+      <p class="modal-overview-text">采用 MVP（Minimum Viable Product）策略完成市场验证，通过小红书虚拟商品完成产品冷启动，实现 100% 付费转化率（15/15），ARPPU ¥5.48，累计管理 76 套长租房源。依托免费 AI API 配额完成产品运营，初步验证了产品的商业可行性、持续使用意愿及真实业务场景价值。</p>
+    </div>
+
+    <div class="modal-info-row">
+      <div class="modal-info-label">项目产出</div>
+      <div class="modal-info-text">微信小程序、OCR录单系统、经营数据看板、SaaS产品</div>
+    </div>
+    <div class="modal-info-row">
+      <div class="modal-info-label">项目标签</div>
+      <div class="modal-tags">
+        <span class="modal-tag">Claude</span>
+        <span class="modal-tag">全栈开发</span>
+        <span class="modal-tag">SaaS产品</span>
+        <span class="modal-tag">OCR识别</span>
+        <span class="modal-tag">产品设计</span>
+      </div>
+    </div>
+
+    </div>
+
     <!-- Poster Full Display -->
     <div class="modal-separator"></div>
     <div class="modal-poster-section fade-in">
@@ -1182,5 +2504,34 @@ function switchUXImg(t,s){var g=t.closest(".ux-gallery");g.querySelector(".ux-ga
 </script>
 <script>
 function scrollToUX(n){var e=document.getElementById("ux-proj-"+(n+1));if(e)e.scrollIntoView({behavior:"smooth",block:"start"});document.querySelectorAll(".ux-nav-btn").forEach(function(b,i){b.classList.toggle("active",i===n)})}
+</script>
+
+<script>
+// Toggle modal content on card click
+document.querySelectorAll('.project-card').forEach(function(card, i) {
+  card.addEventListener('click', function() {
+    var modal = document.getElementById('project-modal');
+    if (!modal) return;
+    if (i === 2) {
+      modal.dataset.project = 'lanmao';
+    } else {
+      delete modal.dataset.project;
+    }
+    showModalContent(modal);
+  });
+});
+
+function showModalContent(modal) {
+  var research = document.getElementById('modal-content-research');
+  var lanmao = document.getElementById('modal-content-lanmao');
+  if (!research || !lanmao) return;
+  if (modal.dataset.project === 'lanmao') {
+    research.style.display = 'none';
+    lanmao.style.display = '';
+  } else {
+    research.style.display = '';
+    lanmao.style.display = 'none';
+  }
+}
 </script>
 
