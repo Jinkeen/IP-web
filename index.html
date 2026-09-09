@@ -465,6 +465,17 @@ a:hover { color: #60a5fa; }
 .modal-poster-section { margin-top: 16px; }
 .modal-poster-section img { width: 100%; border-radius: 8px; border: 1px solid #222; }
 .modal-separator { width: 100%; height: 1px; background: #222; margin: 32px 0; }
+.lanmao-showcase { margin-top: 56px; }
+.lanmao-showcase-head { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 24px; }
+.lanmao-showcase-kicker { color: #777; font-size: 12px; letter-spacing: 1.4px; text-transform: uppercase; margin-bottom: 8px; }
+.lanmao-showcase-title { color: #fff; font-size: 26px; font-weight: 700; letter-spacing: -0.02em; }
+.lanmao-showcase-count { color: #666; font-size: 13px; white-space: nowrap; }
+.lanmao-screen-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; align-items: start; }
+.lanmao-screen { margin: 0; padding: 8px; background: #101010; border: 1px solid #252525; border-radius: 12px; transition: transform .25s ease, border-color .25s ease; }
+.lanmao-screen:hover { transform: translateY(-4px); border-color: #484848; }
+.lanmao-screen img { width: 100%; height: auto; display: block; border-radius: 7px; background: #e9e9e9; }
+.modal-overlay[data-project="lanmao"] > .modal-container > .modal-separator,
+.modal-overlay[data-project="lanmao"] > .modal-container > .modal-poster-section { display: none; }
 .ux-nav-btn { cursor: pointer; background: #161616; border: 1px solid #333; color: #ccc; padding: 6px 16px; border-radius: 4px; font-size: 12px; transition: var(--transition); }
 .ux-nav-btn:hover, .ux-nav-btn.active { background: #fff; color: #000; border-color: #fff; }
 .ux-sub-nav { position: sticky; top: 12px; z-index: 10; display: flex; align-items: center; gap: 6px; justify-content: flex-end; padding: 8px 0; margin-bottom: 24px; }
@@ -499,6 +510,9 @@ a:hover { color: #60a5fa; }
   .project-grid, .github-grid { grid-template-columns: 1fr; }
   .nav-links { display: none; }
   .edu-watermark { font-size: 40px; }
+  .lanmao-screen-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .lanmao-showcase { margin-top: 40px; }
+  .lanmao-showcase-head { align-items: flex-start; flex-direction: column; gap: 8px; }
 }
 @media (min-width: 901px) and (max-width: 1100px) {
   :root { --side-padding: 48px; }
@@ -968,6 +982,28 @@ document.addEventListener('DOMContentLoaded', () => {
         <span class="modal-tag">产品设计</span>
       </div>
     </div>
+
+    <section class="lanmao-showcase" aria-labelledby="lanmao-showcase-title">
+      <div class="lanmao-showcase-head">
+        <div>
+          <div class="lanmao-showcase-kicker">Product Interface</div>
+          <h3 class="lanmao-showcase-title" id="lanmao-showcase-title">核心产品界面</h3>
+        </div>
+        <div class="lanmao-showcase-count">10 个真实业务场景</div>
+      </div>
+      <div class="lanmao-screen-grid">
+        <figure class="lanmao-screen"><img src="images/LanMao截图/bandicam 2026-09-09 18-06-24-654.jpg" alt="LanMao 小程序产品界面 1" loading="lazy"></figure>
+        <figure class="lanmao-screen"><img src="images/LanMao截图/bandicam 2026-09-09 18-06-27-772.jpg" alt="LanMao 小程序产品界面 2" loading="lazy"></figure>
+        <figure class="lanmao-screen"><img src="images/LanMao截图/bandicam 2026-09-09 18-06-30-297.jpg" alt="LanMao 小程序产品界面 3" loading="lazy"></figure>
+        <figure class="lanmao-screen"><img src="images/LanMao截图/bandicam 2026-09-09 18-06-43-870.jpg" alt="LanMao 小程序产品界面 4" loading="lazy"></figure>
+        <figure class="lanmao-screen"><img src="images/LanMao截图/bandicam 2026-09-09 18-06-50-899.jpg" alt="LanMao 小程序产品界面 5" loading="lazy"></figure>
+        <figure class="lanmao-screen"><img src="images/LanMao截图/bandicam 2026-09-09 18-07-00-203.jpg" alt="LanMao 小程序产品界面 6" loading="lazy"></figure>
+        <figure class="lanmao-screen"><img src="images/LanMao截图/bandicam 2026-09-09 18-07-07-433.jpg" alt="LanMao 小程序产品界面 7" loading="lazy"></figure>
+        <figure class="lanmao-screen"><img src="images/LanMao截图/bandicam 2026-09-09 18-07-12-343.jpg" alt="LanMao 小程序产品界面 8" loading="lazy"></figure>
+        <figure class="lanmao-screen"><img src="images/LanMao截图/bandicam 2026-09-09 18-07-16-716.jpg" alt="LanMao 小程序产品界面 9" loading="lazy"></figure>
+        <figure class="lanmao-screen"><img src="images/LanMao截图/bandicam 2026-09-09 18-07-29-174.jpg" alt="LanMao 小程序产品界面 10" loading="lazy"></figure>
+      </div>
+    </section>
 
     </div>
 
