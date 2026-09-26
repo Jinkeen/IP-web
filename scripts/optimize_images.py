@@ -17,6 +17,7 @@ SINGLE_IMAGES = [
     IMAGE_ROOT / "project-01-智能眼镜语言学习系统-AR眼镜界面封面.jpg",
     IMAGE_ROOT / "project-02-发散型交互体验设计-封面.jpg",
     IMAGE_ROOT / "project-03-LanmaoAssist-房源管理系统封面.jpg",
+    IMAGE_ROOT / "project-04-comate-ai-talent-matching-cover.png",
     IMAGE_ROOT / "poster-detail.jpg",
 ]
 

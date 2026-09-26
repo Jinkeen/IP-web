@@ -465,6 +465,11 @@ a:hover { color: #60a5fa; }
 .modal-poster-section { margin-top: 16px; }
 .modal-poster-section img { width: 100%; border-radius: 8px; border: 1px solid #222; }
 .modal-separator { width: 100%; height: 1px; background: #222; margin: 32px 0; }
+.video-showcase { margin-top: 36px; }
+.video-frame { position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; border: 1px solid #2a2a2a; border-radius: 10px; background: #0b0b0b; }
+.video-frame iframe { width: 100%; height: 100%; border: 0; display: block; }
+.video-link { display: inline-flex; align-items: center; gap: 8px; margin-top: 14px; color: #fff; font-size: 13px; }
+.video-link:hover { color: #bbb; }
 .lanmao-showcase { margin-top: 56px; }
 .lanmao-showcase-head { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 24px; }
 .lanmao-showcase-kicker { color: #777; font-size: 12px; letter-spacing: 1.4px; text-transform: uppercase; margin-bottom: 8px; }
@@ -675,8 +680,8 @@ a:hover { color: #60a5fa; }
   <div class="project-header">
     <h2 class="project-title">项目作品集</h2>
     <div class="filter-tabs">
-      <button class="filter-tab active" data-filter="all">全部 <span class="count">(03)</span></button>
-      <button class="filter-tab" data-filter="ai">AI 产品 <span class="count">(01)</span></button>
+      <button class="filter-tab active" data-filter="all">全部 <span class="count">(04)</span></button>
+      <button class="filter-tab" data-filter="ai">AI 产品 <span class="count">(02)</span></button>
       <button class="filter-tab" data-filter="hci">HCI 研究 <span class="count">(01)</span></button>
       <button class="filter-tab" data-filter="dev">开发 <span class="count">(01)</span></button>
     </div>
@@ -719,7 +724,7 @@ a:hover { color: #60a5fa; }
     </div>
 
     <!-- Project 3: LanmaoAssist -->
-    <div class="project-card fade-in" data-category="ai" onclick="document.getElementById('project-modal').classList.add('active')" style="cursor:pointer;">
+    <div class="project-card fade-in" data-category="ai" data-project-id="lanmao" onclick="document.getElementById('project-modal').classList.add('active')" style="cursor:pointer;">
       <div class="project-cover">
         <img src="images/optimized/full/project-03-LanmaoAssist-房源管理系统封面.webp" alt="LanmaoAssist" loading="lazy" decoding="async" onerror="this.style.display='none';this.parentElement.innerHTML='<div class=project-cover-placeholder>LanmaoAssist<br>封面图 · 房源管理后台</div>'">
         <div class="project-arrow">↗</div>
@@ -733,6 +738,24 @@ a:hover { color: #60a5fa; }
           <span class="project-tag">SaaS产品</span>
           <span class="project-tag">OCR识别</span>
           <span class="project-tag">产品设计</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 4: CoMate -->
+    <div class="project-card fade-in" data-category="ai" data-project-id="comate" onclick="document.getElementById('comate-modal').classList.add('active')" style="cursor:pointer;">
+      <div class="project-cover">
+        <img src="images/optimized/full/project-04-comate-ai-talent-matching-cover.webp" alt="CoMate 双端 AI 人才匹配平台封面" loading="lazy" decoding="async">
+        <div class="project-arrow">↗</div>
+      </div>
+      <div class="project-body">
+        <div class="project-name">CoMate 双端 AI HR 人才匹配平台</div>
+        <div class="project-subtitle">Agent | 双端交互 | 人才画像 | 可解释匹配</div>
+        <div class="project-tags">
+          <span class="project-tag">AI 产品</span>
+          <span class="project-tag">Agent 工作流</span>
+          <span class="project-tag">产品设计</span>
+          <span class="project-tag">飞书黑客松</span>
         </div>
       </div>
     </div>
@@ -1011,6 +1034,52 @@ document.addEventListener('DOMContentLoaded', () => {
       <img src="images/optimized/full/poster-detail.webp" alt="学术海报完整展示" loading="lazy" decoding="async">
     </div>
 
+  </div>
+</div>
+
+<!-- ============================================================
+     COMATE PROJECT MODAL
+     ============================================================ -->
+<div class="modal-overlay" id="comate-modal">
+  <button class="modal-close" aria-label="关闭 CoMate 项目详情">×</button>
+  <div class="modal-container">
+    <div class="modal-label">飞书黑客松参赛项目</div>
+    <div class="modal-title">CoMate<br><span style="font-size:0.5em;font-weight:500;">双端 AI HR 人才匹配平台</span></div>
+    <div class="modal-subtitle">Agent | 双端交互 | 人才画像 | 可解释匹配</div>
+
+    <p class="modal-overview-text"><strong>项目概述</strong></p>
+    <p class="modal-overview-text">CoMate 面向 AI 时代的复合型人才与中小团队招聘场景，聚焦岗位需求表达模糊、候选人筛选成本高、项目能力难以验证等问题。产品通过求职者端与招聘端的双端协同，将个人经历、真实项目证据、能力标签与团队需求转化为可解释的人才画像，帮助双方更高效地发现适合共同完成项目的合作对象。</p>
+
+    <div class="modal-bullet-list">
+      <div class="work-bullet-item">求职者通过情境式问答形成能力特征、工作偏好与价值取向画像，并上传项目案例，沉淀以真实成果为依据的人才知识库。</div>
+      <div class="work-bullet-item">招聘端通过对话描述团队背景与人才需求，由 Agent 追问关键信息并生成结构化人才画像，降低岗位定义与筛选门槛。</div>
+      <div class="work-bullet-item">系统结合项目经历、能力标签与协作方式完成候选人匹配，提供可追溯的推荐依据，并通过反馈持续调整推荐权重。</div>
+      <div class="work-bullet-item">参与产品方案规划，负责候选人端完整体验设计与前端实现，并完成复合型人才名片等核心模块设计。</div>
+    </div>
+
+    <div class="modal-info-row">
+      <div class="modal-info-label">项目产出</div>
+      <div class="modal-info-text">Agent 工作流、双端交互 Demo、人才画像、可解释匹配方案</div>
+    </div>
+    <div class="modal-info-row">
+      <div class="modal-info-label">项目标签</div>
+      <div class="modal-tags">
+        <span class="modal-tag">AI Agent</span>
+        <span class="modal-tag">双端交互</span>
+        <span class="modal-tag">人才匹配</span>
+        <span class="modal-tag">可解释 AI</span>
+        <span class="modal-tag">产品设计</span>
+      </div>
+    </div>
+
+    <div class="modal-separator"></div>
+    <section class="video-showcase" aria-labelledby="comate-video-title">
+      <p class="modal-overview-text"><strong id="comate-video-title">产品演示</strong></p>
+      <div class="video-frame">
+        <iframe src="https://drive.google.com/file/d/1JGVlZqmeagvyqS0Ayi3YiIlJQCxhrByn/preview" title="CoMate 产品演示视频" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>
+      </div>
+      <a class="video-link" href="https://drive.google.com/file/d/1JGVlZqmeagvyqS0Ayi3YiIlJQCxhrByn/view?usp=sharing" target="_blank" rel="noopener noreferrer">在 Google Drive 中观看完整视频 ↗</a>
+    </section>
   </div>
 </div>
 
@@ -1312,13 +1381,14 @@ function scrollToUX(index) {
   });
 }
 
-document.querySelectorAll('.project-card').forEach(function(card, index) {
+document.querySelectorAll('.project-card').forEach(function(card) {
   card.addEventListener('click', function() {
+    if (card.dataset.projectId === 'comate') return;
     var modal = document.getElementById('project-modal');
     var research = document.getElementById('modal-content-research');
     var lanmao = document.getElementById('modal-content-lanmao');
     if (!modal || !research || !lanmao) return;
-    var isLanmao = index === 2;
+    var isLanmao = card.dataset.projectId === 'lanmao';
     modal.toggleAttribute('data-project', isLanmao);
     if (isLanmao) modal.dataset.project = 'lanmao';
     research.style.display = isLanmao ? 'none' : '';
